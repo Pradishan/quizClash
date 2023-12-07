@@ -14,9 +14,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# from django.contrib import admin
+# from django.urls import path
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+# ]
+
 from django.contrib import admin
 from django.urls import path
+from django.urls import re_path as url
+# from django.conf.urls import url
+from quizclashBackend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('user/', views.userApi),
+    url(r'^user/([0-9]+)$',views.userApi),
 ]
