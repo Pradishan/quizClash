@@ -1,0 +1,45 @@
+:root {
+    --maincolor: linear-gradient(90deg, rgba(215, 98, 219, 1) 0%, rgba(255, 114, 93, 1) 100%);
+  }
+
+.navbar{
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.navlink {
+    text-decoration: none;
+    padding: 0 0.5rem;
+    color: black;
+}
+
+.navlink:hover{
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.active {
+    background-color: var(--maincolor);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.nav-hover {
+    position: relative;
+}
+
+.nav-hover::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: var(--maincolor);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.2s ease-out;
+    
+}
+
+.nav-hover:hover::after {
+    width: 100%;
+}
