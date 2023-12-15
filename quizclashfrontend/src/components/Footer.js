@@ -14,7 +14,7 @@ export default function Footer ()
                     <div className='d-flex align-items-center'>
                         <p className='m-0 text-muted'><a className="" href="/"><img src={ logo } alt='logo' height={ '18rem' } /></a> copyright©  2023</p>
                     </div>
-                    <div className='d-flex align-items-center justify-content-center'>
+                    <div className='d-flex align-items-center justify-content-center d-sm-none d-md-block'>
                         <a href='' className='px-2 text-muted nav-hover'><i class="bi bi-facebook"></i></a>
                         <a href='' className='px-2 text-muted nav-hover'><i class="bi bi-linkedin"></i></a>
                         <a href='' className='px-2 text-muted nav-hover'><i class="bi bi-github"></i></a>
