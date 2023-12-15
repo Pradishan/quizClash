@@ -1,0 +1,11 @@
+:root {
+    --maincolor: linear-gradient(90deg, rgba(215, 98, 219, 1) 0%, rgba(255, 114, 93, 1) 100%);
+  }
+.sidebar-menu i{
+    font-size: 24px;
+    size: 32px;
+    opacity: 0.8;
+}
+.bg-gray{
+    background-color: #e4e4e4;
+}

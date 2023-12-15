@@ -10,7 +10,7 @@ export default function Navbar ( props )
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container">
                     <a className="py-1" href="/"><img src={ logo } alt='logo' height={ '30rem' } /></a>
-                    <button class="btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                    <button className="btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="d-none d-lg-block align-items-center" >
@@ -31,12 +31,12 @@ export default function Navbar ( props )
                     </div>
                 </div>
             </nav>
-            <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel" style={{width:'15rem',backgroundColor: 'rgba(255, 255, 255, 0.8)', backdropFilter: 'blur(5px)'}}>
                 <div class="offcanvas-header">
                     <a className="" href="/"><img src={ logo } alt='logo' height={ '30rem' } /></a>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body" style={ { backgroundColor: 'rgba(255, 255, 255, 0.5)', backdropFilter: 'blur(5px)' } }>
+                <div class="offcanvas-body">
                     
                     <ul className="" style={ { listStyle: 'none' } }>
                         <li className="">
