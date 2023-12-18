@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import proPic from '../assets/pro pic.jpg';
 import starimg from '../assets/circle-star.jpg';
+import pythonimg from '../assets/python.png';
+import certificateimg from '../assets/certificates.jpg';
 
 export default function Profile() {
   return (
@@ -30,6 +32,15 @@ export default function Profile() {
           </div>
         </div>
 
+
+
+        <div className="container">
+      <div className="main-body">
+      
+         
+            <div className="row gutters-sm">
+             
+              <div className="col-md-12" ></div>
         <div className="card mb-3">
                   <div className="card-body">
                     <div className="row">
@@ -128,6 +139,74 @@ export default function Profile() {
                     </div>
                   </div>
                 </div>
+                
+                <div className="row gutters-sm">
+
+                  <div className="col-sm-6 mb-3">
+                    <div className="card h-100">
+                      <div className="card-body">
+                        <h4 className="d-flex align-items-center mb-3">Previous Quizzzes</h4>
+                      { /*Quiz Card */}
+                    <div className="quiz-card">
+                      <div className="row">
+                          <div className="col-md-6">
+                              <img className="card-image" src={pythonimg} alt="Quiz Image"/>
+                          </div>
+                          <div className="col-md-6">
+                              <div className="card-details">
+                                  <div className="card-title">Python</div>
+                                  <div className="progress">
+    <div className="progress-bar" role="progressbar" style={{ width: '20%' }} aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
+</div>
+                                  <div className="card-description"></div>Your score: 20%</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  
+                  </div>
+
+                      </div>
+                 
+                
+
+
+                  <div className="col-sm-6 mb-3">
+                    <div className="card h-100">
+                      <div className="card-body">
+                        <h4 className="d-flex align-items-center mb-3">Certificates</h4>
+                        {/*Course Card */}
+            <div className="col-md-12">
+              <div className="course-card">
+                  <img className="course-image" src={certificateimg} alt="Course Image"/>
+                  <div className="card-details">
+                    <div className="card-title">Java</div>
+                    
+                    <div className="card-description">Issued Date: 2023.05.21</div>
+                    <div className="course-action">
+                    <button type="button" className="btn btn-primary"  style={{ width: '15%' }}>
+                        View
+                    </button>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+          
+        </div>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+                 
+</div>
+</div>
+
+
+
+
+                
        
 
         
