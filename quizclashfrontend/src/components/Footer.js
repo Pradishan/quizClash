@@ -17,9 +17,9 @@ export default function Footer ()
                         </div>
                     </div>
                     <div className='d-flex align-items-center justify-content-center'>
-                        <a href='' className='px-2 text-muted nav-hover'><i class="bi bi-facebook"></i></a>
-                        <a href='' className='px-2 text-muted nav-hover'><i class="bi bi-linkedin"></i></a>
-                        <a href='' className='px-2 text-muted nav-hover'><i class="bi bi-github"></i></a>
+                        <a href='/' className='px-2 text-muted nav-hover'><i class="bi bi-facebook"></i></a>
+                        <a href='/' className='px-2 text-muted nav-hover'><i class="bi bi-linkedin"></i></a>
+                        <a href='/' className='px-2 text-muted nav-hover'><i class="bi bi-github"></i></a>
                     </div>
                 </div>
             </div>
