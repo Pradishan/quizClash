@@ -80,7 +80,7 @@ export default function Admin ()
         <div className="shadow" style={ sstyle }>
           <div className={ logostyle } >
             <a className="" href="/"><img src={ logo } className='ms-3 mt-3 me-1' alt='logo' height={ '32rem' } /></a>
-            <button className="btn ms-1" type="button" onClick={ () => setToggle( !toggle ) }>
+            <button className="btn ms-1" type="button" onClick={ () => setToggle( !toggle ) } style={{border:'none'}}>
               <span style={ { fontSize: '32px' } }><i class="bi bi-list"></i></span>
             </button>
           </div>
