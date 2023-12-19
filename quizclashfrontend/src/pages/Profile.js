@@ -8,6 +8,7 @@ import pythonimg from '../assets/python.png';
 import certificateimg from '../assets/certificates.jpg';
 
 export default function Profile() {
+
   return (
     <>
     <Navbar />
@@ -91,7 +92,7 @@ export default function Profile() {
                     <div className="row">
                       
                      {/*end edit modal*/}
-                      <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#editModal" style={{ width: '15%' }}>
+                      <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" style={{ width: '15%' }}>
                         Edit Profile
                     </button>
                 
@@ -111,23 +112,25 @@ export default function Profile() {
                                         <label for="editName">Name</label>
                                         <input type="text" className="form-control" id="editName" placeholder="Enter your name"/>
                                     </div>
+                                    <br></br>
                                     <div className="form-group">
                                         <label for="editEmail">Email</label>
                                         <input type="email" className="form-control" id="editEmail" placeholder="Enter your email"/>
                                     </div>
-
+                                    <br></br>
                                     <div className="form-group">
                                       <label for="editEmail">Address</label>
                                       <input type="email" className="form-control" id="editEmail" placeholder="Enter your address"/>
                                   </div>
-
+                                  <br></br>
                                   <div className="form-group">
                                     <label for="editEmail">Phone No.</label>
                                     <input type="email" className="form-control" id="editEmail" placeholder="Enter your phone number"/>
                                 </div>
+                                <br></br>
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
                                     <button type="button" className="btn btn-primary">Save changes</button>
                                 </div>
@@ -156,8 +159,8 @@ export default function Profile() {
                               <div className="card-details">
                                   <div className="card-title">Python</div>
                                   <div className="progress">
-    <div className="progress-bar" role="progressbar" style={{ width: '20%' }} aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
-</div>
+                             <div className="progress-bar" role="progressbar" style={{ width: '20%' }} aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
+                              </div>
                                   <div className="card-description"></div>Your score: 20%</div>
                               </div>
                           </div>
