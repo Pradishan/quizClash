@@ -5,7 +5,7 @@ export default function Footer ()
 {
     return (
         <>
-            <div className='sticky-bottom' style={ { backgroundColor: '#F3F3F3' } }>
+            <footer className='sticky-bottom' style={ { backgroundColor: '#F3F3F3' } }>
                 <div className='d-flex justify-content-between mx-3'>
                     <div className='p-2'>
                         <p className='m-0 text-muted' style={ { fontSize: 'small' } }>Quizclash@info.com</p>
@@ -22,7 +22,7 @@ export default function Footer ()
                         <a href='/' className='px-2 text-muted nav-hover'><i class="bi bi-github"></i></a>
                     </div>
                 </div>
-            </div>
+            </footer>
         </>
     )
 }

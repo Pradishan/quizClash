@@ -2,4 +2,29 @@
     border-radius: 1.5625rem;
     background: #FFF;
     box-shadow: -20px 40px 100px 0px rgba(0, 0, 0, 0.10);
+    width: auto;
+    margin: auto 10rem;
 }
+.option{
+    cursor: pointer;
+}
+.option:hover{
+    background-color: #f1f1f1;
+}
+.quiz-container .correct {
+    background-color: #d8f8b4;
+}
+.quiz-container .wrong {
+    background-color: #ffc7c7;
+}
+
+/* responsive for md screen  */
+@media (min-width: 0px) and (max-width: 900px) {
+  
+    .quiz-container {
+        width: auto;
+        margin: auto 2rem;
+    }
+
+  }
+  

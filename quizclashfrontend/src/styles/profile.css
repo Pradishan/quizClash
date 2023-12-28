@@ -243,7 +243,7 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.card-image {
+.card-img {
   width: 100px; 
   height: 100px;
   float: left;

@@ -27,6 +27,7 @@ export default function Leaderboard ()
 
         </div>
       </center >
+      
     </>
   )
 }
