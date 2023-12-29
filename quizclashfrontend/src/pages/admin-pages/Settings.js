@@ -13,6 +13,7 @@ export default function Settings() {
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
+                    <br></br>
                      {/*Profile picture image*/ }
                     <img class="img-account-profile rounded-circle mb-2" src={ proPic } alt="pro-pic"/>
                     <div class="mt-3">
@@ -22,10 +23,11 @@ export default function Settings() {
                     </div>
                     <br/>
                     <br/>
+                  
                     <label class="custom-upload"><input type="file" name="upload_file" />Update Profile Picture</label>
                     
                 </div>
-                <br/>
+             
           
             </div>
         </div>
@@ -39,27 +41,27 @@ export default function Settings() {
                     <form>
                          {/*name*/ }
                         <div class="mb-3">
-                            <label class="small mb-1" for="name">Name</label>
+                            <label class="small mb-1" for="name"><b>Name</b></label>
                             <input class="form-control" id="name" type="text" placeholder="Enter your name" value=""/>
                         </div>
 
                          {/*address*/ }
                         <div class="mb-3">
                            
-                                <label class="small mb-1" for="address">Address</label>
+                                <label class="small mb-1" for="address"><b>Address</b></label>
                                 <input class="form-control" id="address" type="text" placeholder="Enter your address" value=""/>
                             </div>
                             
                         
                          {/*email*/ }
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                            <label class="small mb-1" for="inputEmailAddress"><b>Email address</b></label>
                             <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value=""/>
                         </div>
                        
                         {/*phone number*/ }
                         <div class="mb-3">
-                            <label class="small mb-1" for="phoneNo">Phone Number</label>
+                            <label class="small mb-1" for="phoneNo"><b>Phone Number</b></label>
                             <input class="form-control" id="phoneNo" type="text" placeholder="Enter your phone number" value=""/>
                         </div>
 
@@ -78,17 +80,17 @@ export default function Settings() {
         <form>
             
             <div class="mb-3">
-                <label class="small mb-1" for="currentPassword">Current Password</label>
+                <label class="small mb-1" for="currentPassword"><b>Current Password</b></label>
                 <input class="form-control" id="currentPassword" type="password" placeholder="Enter current password"/>
             </div>
             
             <div class="mb-3">
-                <label class="small mb-1" for="newPassword">New Password</label>
+                <label class="small mb-1" for="newPassword"><b>New Password</b></label>
                 <input class="form-control" id="newPassword" type="password" placeholder="Enter new password"/>
             </div>
             
             <div class="mb-3">
-                <label class="small mb-1" for="confirmPassword">Confirm Password</label>
+                <label class="small mb-1" for="confirmPassword"><b>Confirm Password</b></label>
                 <input class="form-control" id="confirmPassword" type="password" placeholder="Confirm new password"/>
             </div>
             <button class="btn btn-primary" type="button">Save Changes</button>
@@ -97,6 +99,23 @@ export default function Settings() {
 </div>
 </div>
 
+
+{/*Delete account*/ }
+<div class="col-xl-6">
+ 
+  <div class="card mb-4">
+    <div class="card-header">Delete Account</div>
+    <div class="card-body">
+        <br/>
+        <p>Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.</p>
+        <br/>
+        <button class="btn btn-danger" type="button">I understand, delete my account</button>
+        <br></br>
+    </div>
+    <br></br>
+</div>
+
+</div>
         </div>
        </div>
   )
