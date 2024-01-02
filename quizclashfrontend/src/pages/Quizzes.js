@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
+import React, { useState, useEffect, lazy, useCallback, useMemo } from 'react';
 import '../styles/Quiz.css';
-import { questions } from '../data/questions';
+import questions  from '../data/questions';
 import alarm from '../assets/alarm.mp3';
+
+const Navbar = lazy(() => import('../components/Navbar'));
 
 export default function Quizzes() {
   const [index, setIndex] = useState(null);
@@ -13,7 +14,8 @@ export default function Quizzes() {
   const [showStartButton, setShowStartButton] = useState(true);
   const [showScore, setShowScore] = useState(false);
   const [showQuestion, setShowQuestion] = useState(false);
-  const alarmSound = new Audio(alarm);
+
+  const alarmSound = useMemo(() => new Audio(alarm), []);
 
   const startQuiz = () => {
     setShowStartButton(false);
@@ -26,9 +28,9 @@ export default function Quizzes() {
     setShowQuestion(true)
   };
 
-  const playAlarm = () => {
+  const playAlarm = useCallback(() => {
     alarmSound.play();
-  };
+  }, [alarmSound]);
 
   useEffect(() => {
     if (showQuestion && !lock) {
@@ -47,7 +49,7 @@ export default function Quizzes() {
   
       return () => clearTimeout(timer);
     }
-  }, [lock, timeLeft, showQuestion]);
+  }, [lock, timeLeft, showQuestion, playAlarm]);
 
   const progressWidth = ((15 - timeLeft) / 15) * 100;
 

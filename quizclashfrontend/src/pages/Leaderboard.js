@@ -1,5 +1,7 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React, { lazy } from 'react'
+import '../styles/Quiz.css';
+
+const Navbar = lazy(() => import('../components/Navbar'));
 
 export default function Leaderboard ()
 {

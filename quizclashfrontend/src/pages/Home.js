@@ -1,6 +1,7 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import React,{lazy} from 'react'
+
+const Navbar = lazy(() => import('../components/Navbar'));
+const Footer = lazy(() => import('../components/Footer'));
 
 export default function Home ()
 {

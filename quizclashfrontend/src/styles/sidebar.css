@@ -9,3 +9,28 @@
 .bg-gray{
     background-color: #e4e4e4;
 }
+.active {
+    background-color: var(--maincolor);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.nav-hover {
+    position: relative;
+}
+
+.nav-hover::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: var(--maincolor);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.2s ease-out;
+    
+}
+
+.nav-hover:hover::after {
+    width: 100%;
+}

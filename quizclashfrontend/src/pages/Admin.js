@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy } from 'react'
 import '../styles/sidebar.css'
+
 import logo1 from '../assets/logo.png';
 import logo2 from '../assets/lgogsymbol.png';
-import Dashboard from './admin-pages/Dashboard';
-import Questions from './admin-pages/Questions';
-import Settings from './admin-pages/Settings';
-import Users from './admin-pages/Users';
+
+const Dashboard = lazy(()=> import('./admin-pages/Dashboard'))
+const Questions = lazy(()=> import('./admin-pages/Questions'))
+const Settings = lazy(()=> import('./admin-pages/Settings'))
+const Users = lazy(()=> import('./admin-pages/Users'))
+
 
 export default function Admin ()
 {

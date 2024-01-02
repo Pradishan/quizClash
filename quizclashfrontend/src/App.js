@@ -1,24 +1,33 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Page404 from './pages/Page404';
-import Home from './pages/Home';
-import Admin from './pages/Admin';
-import Profile from './pages/Profile';
-import Quizzes from './pages/Quizzes';
-import Leaderboard from './pages/Leaderboard';
+import routingData from './data/routingData';
+import { Suspense } from 'react';
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/quizzes" element={<Quizzes />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
 
-        <Route path="/*" element={<Page404 />} />
-      </Routes>
+      <Suspense
+        fallback={
+          <div className='position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center'>
+          <div className="spinner-border text-dark fs-2" style={{ height: '5rem', width: '5rem' }} role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        
+        }
+      >
+
+        <ToastContainer limit={1} />
+
+        <Routes>
+          {Object.keys(routingData).map((key) => {
+            return <Route key={key} path={key} element={routingData[key]} />;
+          })}
+        </Routes>
+      </Suspense>
+
     </div>
   );
 }

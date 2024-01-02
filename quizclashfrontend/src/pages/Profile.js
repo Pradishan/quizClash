@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import '../styles/profile.css'
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import proPic from '../assets/pro pic.jpg';
 import starimg from '../assets/circle-star.jpg';
 import pythonimg from '../assets/python.png';
 import certificateimg from '../assets/certificates.jpg';
+
+const Navbar = lazy(() => import('../components/Navbar'))
+const Footer = lazy(() => import('../components/Footer'))
 
 export default function Profile ()
 {
