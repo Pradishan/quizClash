@@ -5,6 +5,10 @@
     width: auto;
     margin: auto 10rem;
 }
+
+.card-shadow{
+    box-shadow: -20px 40px 100px 0px rgba(0, 0, 0, 0.10);
+}
 .option{
     cursor: pointer;
 }

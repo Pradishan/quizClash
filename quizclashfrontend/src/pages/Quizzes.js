@@ -1,175 +1,39 @@
-import React, { useState, useEffect, lazy, useCallback, useMemo } from 'react';
+import React, { lazy } from 'react';
 import '../styles/Quiz.css';
-import questions  from '../data/questions';
-import alarm from '../assets/alarm.mp3';
+import img from '../assets/demo.png';
+import {Link} from 'react-router-dom'
 
-const Navbar = lazy(() => import('../components/Navbar'));
+const Navbar = lazy(() => import('../components/Navbar'))
+const QuestionCard = lazy(() => import('../components/QuestionCard'))
 
 export default function Quizzes() {
-  const [index, setIndex] = useState(null);
-  const [lock, setLock] = useState(false);
-  const [score, setScore] = useState(0);
-  const [question, setQuestion] = useState(questions[0]);
-  const [timeLeft, setTimeLeft] = useState(null);
-  const [showStartButton, setShowStartButton] = useState(true);
-  const [showScore, setShowScore] = useState(false);
-  const [showQuestion, setShowQuestion] = useState(false);
 
-  const alarmSound = useMemo(() => new Audio(alarm), []);
-
-  const startQuiz = () => {
-    setShowStartButton(false);
-    setIndex(0);
-    setLock(false);
-    setQuestion(questions[0]);
-    setScore(0);
-    setTimeLeft(15)
-    setShowScore(false);
-    setShowQuestion(true)
-  };
-
-  const playAlarm = useCallback(() => {
-    alarmSound.play();
-  }, [alarmSound]);
-
-  useEffect(() => {
-    if (showQuestion && !lock) {
-      const timer = setTimeout(() => {
-        if (timeLeft > 0) {
-          setTimeLeft(timeLeft - 1);
-        } else {
-          const correctAns = document.getElementById('answer');
-          if (correctAns) {
-            correctAns.classList.add('correct');
-            playAlarm();
-          }
-          setLock(true);
-        }
-      }, 1000);
-  
-      return () => clearTimeout(timer);
-    }
-  }, [lock, timeLeft, showQuestion, playAlarm]);
-
-  const progressWidth = ((15 - timeLeft) / 15) * 100;
-
-  const checkAnswer = (e, ans) => {
-    if (!lock) {
-      const correctAns = document.getElementById('answer');
-      if (question.answer === ans) {
-        e.target.classList.add('correct');
-        setScore((prev) => prev + 1);
-      } else {
-        e.target.classList.add('wrong');
-        correctAns.classList.add('correct');
-        playAlarm();
-      }
-      setLock(true);
-      setTimeLeft(15);
-    }
-  };
-
-  const next = () => {
-    if (lock) {
-      if (index === questions.length - 1) {
-        setShowScore(true);
-        setShowQuestion(false)
-      } else {
-        setIndex((prevIndex) => prevIndex + 1);
-        setQuestion(questions[index + 1]);
-        setLock(false);
-        setTimeLeft(15);
-      }
-    }
-  };
-
-  const renderStartButton = () => {
-    if (showStartButton) {
-      return (
-        <button className='btn btn-dark px-5' onClick={startQuiz}>
-          Start
-        </button>
-      );
-    }
-    return null;
-  };
-
-  const renderScore = () => {
-    if (showScore) {
-      return (
-        <div>
-          <p>Total Score: {score}</p>
-        </div>
-      );
-    }
-    return null;
-  };
+const quizzes = [
+  {id:'001',name:'tamil',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",level:'Hard',point:"200"},
+  {id:'002',name:'maths',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",level:'Easy',point:"100"},
+  {id:'003',name:'english',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",level:'Meadium',point:"200"},
+  {id:'004',name:'science',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",level:'Hard',point:"200"},
+  {id:'005',name:'ict',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",level:'Easy',point:"200"},
+  {id:'006',name:'sinhala',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",level:'Meadium',point:"0"},
+  {id:'007',name:'history',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",level:'Hard',point:"200"},
+  {id:'008',name:'art',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",level:'Meadium',point:"200"},
+];
 
   return (
     <>
-      <Navbar page={'quizzes'} />
-      <center>
-        <h1>Quiz Name</h1>
-        <div className='quiz-container mt-3 p-4' key={index}>
-          {renderStartButton()}
-          {(showQuestion) ? (
-            <>
-              <div className='row'>
-                <div className='d-flex justify-content-center mt-4'>
-                  <p className='fs-4'>Time left <strong> {timeLeft} </strong> sec</p>
-                </div>
-                <hr
-                  className='mx-0 px-5'
-                  style={{
-                    height: '0.5rem',
-                    width: `${progressWidth}%`,
-                    border: 'none',
-                    background:
-                      'linear-gradient(270deg, #1CB722 79.99%, rgba(0, 0, 0, 0.00) 100.57%, rgba(20, 56, 185, 0.00) 100.57%)',
-                    transition: '0.2s ease-out',
-                  }}
-                />
-              </div>
-              <div className='row'>
-                {/* Question */}
-                <div className='d-flex'>
-                  <span className='fs-3 fw-bold m-0 me-2'>{index + 1}</span>
-                  <p className='fs-4 text-start text-justify'>{question.question}</p>
-                </div>
-              </div>
-              {/* answers */}
-              {question.options.map((option) => (
-                <div className='row'>
-                  <div key={option}>
-                    <p
-                      className='fs-3 text-start ms-4 text-justify option rounded p-1 '
-                      id={question.answer === option ? 'answer' : ''}
-                      onClick={(e) => checkAnswer(e, option)}
-                    >
-                      {`${question.options.indexOf(option) + 1}. ${option}`}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              <div className='row'>
-                <div className='d-flex justify-content-between p-3'>
-                  <p className='fs-5'>
-                    {index + 1} of {questions.length} Question
-                  </p>
-                  <button
-                    className='btn btn-dark px-5'
-                    onClick={next}
-                    disabled={!lock}
-                  >
-                    Next
-                  </button>
-                </div>
-              </div>
-            </>
-          ):null}
-          {renderScore()}
-        </div>
-      </center>
-    </>
+    <Navbar page={'quizzes'} />
+    <div className='container'>
+      <div className='row'>
+        {quizzes.map((quiz, index) => (
+          <div key={quiz.id} className='col-xxl-3 col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center'>
+            <Link to={`/quiz/${quiz.id}`}  state={{ some: `${quiz.name}` }} style={{ textDecoration: 'none' }}>
+              <QuestionCard img={img} quiz={quiz} />
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  </>
+  
   );
 }
