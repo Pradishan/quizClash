@@ -3,16 +3,17 @@ import { useParams, useLocation } from 'react-router-dom';
 import '../styles/Quiz.css';
 import questions from '../data/questions';
 import alarm from '../assets/alarm.mp3';
-import Result from '../components/Result';
 
 const Navbar = lazy(() => import('../components/Navbar'));
+const Result = lazy(() => import('../components/Result'));
+const RoundProgressBar = lazy(() => import('../components/RoundProgressBar'));
 
 export default function Questions() {
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     let { state } = useLocation();
-
+ 
 
     const [index, setIndex] = useState(null);
     const [lock, setLock] = useState(false);
@@ -95,9 +96,19 @@ export default function Questions() {
     const renderStartButton = () => {
         if (showStartButton) {
             return (
-                <button className='btn btn-dark px-5' onClick={startQuiz}>
-                    Start
-                </button>
+                <>
+                    <h2>Some Rules of this Quiz</h2>
+                    <div class="d-flex flex-column justify-content-center mb-3">
+                        <p className='m-0 fs-4' >1. You will have only <span className='text-primary fw-bold'>15 seconds</span> per each question.</p>
+                        <p className='m-0 fs-4' >2. Once you select your answer, it can't be undone.</p>
+                        <p className='m-0 fs-4' >3. You can't select any option once time goes off.</p>
+                        <p className='m-0 fs-4' >4. You can't exit from the Quiz while you're playing.</p>
+                        <p className='m-0 fs-4' >5. You'll get points on the basis of your correct answers.</p>
+                    </div>
+                    <button className='btn btn-dark px-5' onClick={startQuiz}>
+                        Start
+                    </button>
+                </>
             );
         }
         return null;
@@ -105,7 +116,7 @@ export default function Questions() {
 
     return (
         <>
-            <Navbar page={'quizzes'} />
+            <Navbar />
             <center>
                 <h1>{state.some}</h1>
                 <div className='quiz-container mt-3 p-4' key={question.numb}>
@@ -113,8 +124,10 @@ export default function Questions() {
                     {(showQuestion) ? (
                         <>
                             <div className='row'>
-                                <div className='d-flex justify-content-center mt-4'>
+                            
+                                <div className='d-flex justify-content-center mx-0 mt-4 position-relative'>
                                     <p className='fs-4'>Time left <strong> {timeLeft} </strong> sec</p>
+                                    <div className='position-absolute translate-middle d-sm-block d-none' style={{top:'10px', right:'-14rem'}}><RoundProgressBar progress={(((index + 1)/questions?.length)*100).toFixed(2)} strokeWidth={1} circleRadius={3} padding={10} /></div>
                                 </div>
                                 <hr
                                     className='mx-0 px-5'
@@ -123,8 +136,9 @@ export default function Questions() {
                                         width: `${progressWidth}%`,
                                         border: 'none',
                                         background:
-                                            'linear-gradient(270deg, #1CB722 79.99%, rgba(0, 0, 0, 0.00) 100.57%, rgba(20, 56, 185, 0.00) 100.57%)',
-                                        transition: '0.2s ease-out',
+                                            'linear-gradient(127deg, rgba(233,105,162,0) 0%, rgba(215,98,219,1) 60%, rgba(255,114,93,1) 100%)',
+                                        transition: '0.5s ease-out',
+                                        opacity:'1'
                                     }}
                                 />
                             </div>
@@ -151,8 +165,11 @@ export default function Questions() {
                             ))}
                             <div className='row'>
                                 <div className='d-flex justify-content-between p-3'>
-                                    <p className='fs-5'>
+                                    <p className='d-none d-md-block fs-5'>
                                         {index + 1} of {questions.length} Question
+                                    </p>
+                                    <p className='d-block d-md-none fs-5'>
+                                        {index + 1} / {questions.length} 
                                     </p>
                                     <button
                                         className='btn btn-dark px-5'
@@ -162,12 +179,12 @@ export default function Questions() {
                                         Next
                                     </button>
                                 </div>
-                            </div>
-                        </>
+                            </div>                        </>
                     ) : null}
                     {
-                        (showScore)?<Result score={score} />:null
+                        (showScore) ? <Result score={score} nOfQuiz={questions.length}  /> : null
                     }
+            
                 </div>
             </center>
         </>
