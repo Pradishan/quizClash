@@ -57,7 +57,7 @@ export default function Admin ()
   {
     sstyle = {
       width: '6rem',
-      transition: '0.2s ease-out'
+      transition: '0.2s ease-out',
     }
     linkstyle = {
       display: 'none'
@@ -78,7 +78,7 @@ export default function Admin ()
   }
   return (
     <>
-      <div className='row vh-100'>
+      <div className='row vh-100' style={{ position: 'fixed', left: '0', right: '0' }}>
 
         <div className="shadow" style={ sstyle }>
           <div className={ logostyle } >
@@ -96,7 +96,7 @@ export default function Admin ()
         </div>
 
         {/* main conten  */ }
-        <div className='' style={ { flex: '1', backgroundColor: '#f5f5f5' } }>
+        <div className=''  style={{ flex: '1', backgroundColor: '#f5f5f5', overflowY: 'auto', maxHeight: '100vh',}}>
           { displayContent() }
         </div>
       </div>
