@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function Questions() {
   return (
-    <div>Questions</div>
-  )
+    <div className="container">
+      <div className="row"></div>
+    </div>
+  );
 }
