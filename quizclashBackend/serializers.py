@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from quizclashBackend.models import User
+from quizclashBackend.models import User,Quiz,Question
 from django.contrib.auth import authenticate
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id','email','username','first_name','last_name','password','phone','address')
+        fields = ('id','email','username','first_name','last_name','password','phone','address','is_staff')
 
 
 class CreateUserSerializer(serializers.ModelSerializer):
@@ -66,3 +66,13 @@ class LoginSerializer(serializers.Serializer):
     
         attrs['user'] = user
         return attrs
+    
+class QuizSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Quiz
+        fields = '__all__'
+
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = '__all__'

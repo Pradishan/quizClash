@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 from django.utils import timezone
 
+# user mode manager
 class UserManager(BaseUserManager):
     def create_user(self,email,password,**extra_fields):
         if not email:
@@ -26,7 +27,7 @@ class UserManager(BaseUserManager):
         return self.create_user(email,password,**extra_fields)
 
 
-
+# user model 
 class User(AbstractBaseUser):
     username = models.CharField(max_length = 100,unique = True)
     email = models.EmailField(max_length = 254,unique = True)
@@ -59,4 +60,30 @@ class User(AbstractBaseUser):
     
     def has_perm(self,perm,obj=None):
         return True
+    
+    # quiz model 
+class Quiz(models.Model):
+    name=models.CharField(max_length=200,unique=True)
+    description=models.CharField(max_length=200)
+    level=models.CharField(max_length=200)
+    xp=models.IntegerField()
+    
+    def __str__(self):
+        return self.name
+    
+    # Question model
+class Question(models.Model):
+    quiz= models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    number=models.IntegerField()
+    question=models.CharField(max_length=255,unique=True)
+    answer=models.CharField(max_length=200)
+    option1=models.CharField(max_length=200)
+    option2=models.CharField(max_length=200)
+    option3=models.CharField(max_length=200)
+    option4=models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.question
+    
+
     

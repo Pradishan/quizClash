@@ -152,5 +152,5 @@ REST_FRAMEWORK = {
 
 REST_KNOX = {
     'USER_SERIALIZER': 'quizclashBackend.serializers.UserSerializer',
-    'TOKEN_TTL': timedelta(hours=48)
+    'TOKEN_TTL': timedelta(hours=24)
 }
