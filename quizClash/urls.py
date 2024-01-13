@@ -22,13 +22,17 @@ Including another URLconf
 # ]
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from django.urls import re_path as url
 from quizclashBackend import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/', views.userApi),
-    path('user/<int:id>', views.userApi),
-    # url(r'^user/([0-9]+)$',views.userApi),
+    path('accounts/',include('quizclashBackend.urls')),
+    path('quiz/',views.QuizAPIView.as_view()),
+    path('quiz/<int:pk>/',views.QuizAPIView.as_view()),
+    path('question/',views.QuestionAPIView.as_view()),
+    path('question/<int:pk>/',views.QuestionAPIView.as_view()),
+    path('quizzes/<int:quiz_id>/questions/',views.QuizzesAPIView.as_view()),
 ]

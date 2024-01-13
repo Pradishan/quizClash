@@ -1,33 +1,108 @@
 from django.shortcuts import render
 
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
-from django.http.response import JsonResponse
-from quizclashBackend.serializers import UserSerializer
-from quizclashBackend.models import User
 
-@csrf_exempt
-def userApi(request,id=0):
-    if request.method=='GET':
-        user = User.objects.all()
-        user_serializer=UserSerializer(user,many=True)
-        return JsonResponse(user_serializer.data,safe=False)
-    elif request.method=='POST':
-        user_data=JSONParser().parse(request)
-        user_serializer=UserSerializer(data=user_data)
-        if user_serializer.is_valid():
-            user_serializer.save()
-            return JsonResponse("Added Successfully",safe=False)
-        return JsonResponse("Failed to Add",safe=False)
-    elif request.method=='PUT':
-        user_data=JSONParser().parse(request)
-        user=User.objects.get(id=id)
-        user_serializer=UserSerializer(user,data=user_data)
-        if user_serializer.is_valid():
-            user_serializer.save()
-            return JsonResponse("Updated Successfully",safe=False)
-        return JsonResponse("Failed to Update")
-    elif request.method=='DELETE':
-        user=User.objects.get(id=id)
-        user.delete()
-        return JsonResponse("Deleted Successfully",safe=False)
+from quizclashBackend.serializers import CreateUserSerializer,UpdateUserSerializer,LoginSerializer,QuizSerializer,QuestionSerializer
+from quizclashBackend.models import User,Quiz,Question
+from knox import views as knox_views
+from django.contrib.auth import login
+
+from rest_framework.generics import CreateAPIView, UpdateAPIView,RetrieveAPIView,DestroyAPIView,ListAPIView
+from rest_framework.permissions import AllowAny,IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
+
+
+
+class CreateUserAPI(CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = CreateUserSerializer
+    permission_classes = (AllowAny,)
+
+class UpdateUserAPI(UpdateAPIView):
+    permission_classes = (IsAuthenticated,)
+    queryset = User.objects.all()
+    serializer_class = UpdateUserSerializer
+    
+class LoginAPIView(knox_views.LoginView):
+    permission_classes = (AllowAny,)
+    serializer_class = LoginSerializer
+
+    def post(self,request,format=None):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            user = serializer.validated_data['user']
+            login(request,user)
+            response = super().post(request,format=None)
+
+        else:
+            return Response({'errors':serializer.errors},status = status.HTTP_400_BAD_REQUEST)
+        return Response(response.data,status = status.HTTP_200_OK)
+    
+    # Quiz API by using basic technique
+class QuizAPIView(APIView):
+    permission_classes = (AllowAny,)
+    serializer_class = QuizSerializer
+
+    def post(self,request,*args,**kwargs):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data':serializer.data},status = status.HTTP_201_CREATED)
+        else:
+            return Response({'errors':serializer.errors},status = status.HTTP_400_BAD_REQUEST)
+        
+    def get(self,request,*args,**kwargs):
+        queryset = Quiz.objects.all()
+        serializer = self.serializer_class(queryset,many=True)
+        return Response({'data':serializer.data})
+    
+    def put(self,request,*args,**kwargs):
+        pk = kwargs.get('pk')
+        try:
+            instance = Quiz.objects.get(id=pk)
+        except Quiz.DoesNotExist:
+            return Response({'errors': 'Quiz is not exist'},status = status.HTTP_204_NO_CONTENT)
+        
+        serializer =self.serializer_class(instance = instance,data= request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data':serializer.data},status = status.HTTP_202_ACCEPTED)
+        else:
+            return Response({'errors':serializer.errors},status = status.HTTP_400_BAD_REQUEST)
+        
+    def patch(self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+        try:
+            instance = Quiz.objects.get(id=pk)
+        except Quiz.DoesNotExist:
+            return Response({'errors': 'Quiz is not exist'},status = status.HTTP_204_NO_CONTENT)
+        
+        serializer = self.serializer_class(instance=instance, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data': serializer.data},status = status.HTTP_202_ACCEPTED)
+        else:
+            return Response({'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        
+    def delete(self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+        try:
+            instance = Quiz.objects.get(id=pk)
+        except Quiz.DoesNotExist:
+            return Response({'errors': 'Quiz is not exist'},status = status.HTTP_204_NO_CONTENT)
+        return Response({'message': 'the Quiz has been deleted'},status = status.HTTP_200_OK) if instance.delete() else Response({'message': 'Failed to delete the Quiz'}, status=status.HTTP_400_BAD_REQUEST) 
+    
+class QuestionAPIView(CreateAPIView,UpdateAPIView,RetrieveAPIView,DestroyAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = QuestionSerializer
+    queryset = Question.objects.all()
+
+class QuizzesAPIView(ListAPIView):
+    permission_classes = (AllowAny,)  
+    serializer_class = QuestionSerializer
+
+    def get_queryset(self):
+        quizid = self.kwargs.get('quiz_id')
+        return Question.objects.filter(quiz_id=quizid)

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'corsheaders',
     'rest_framework',
-    'quizclashBackend.apps.QuizclashbackendConfig',
+    'quizclashBackend',
+
+    'knox',
 ]
 
 MIDDLEWARE = [
@@ -50,8 +54,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+AUTH_USER_MODEL = 'quizclashBackend.User'
 
 ROOT_URLCONF = 'quizClash.urls'
 
@@ -138,3 +145,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_ALL_HEADERS=True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':('knox.auth.TokenAuthentication',),
+}
+
+REST_KNOX = {
+    'USER_SERIALIZER': 'quizclashBackend.serializers.UserSerializer',
+    'TOKEN_TTL': timedelta(hours=24)
+}

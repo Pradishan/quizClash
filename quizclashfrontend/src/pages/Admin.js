@@ -46,9 +46,11 @@ export default function Admin() {
   }, []);
   if (toggle) {
     sstyle = {
-      width: "6rem",
-      transition: "0.2s ease-out",
-    };
+
+      width: '6rem',
+      transition: '0.2s ease-out',
+    }
+
     linkstyle = {
       display: "none",
     };
@@ -67,26 +69,15 @@ export default function Admin() {
   }
   return (
     <>
-      <div className="row vh-100 overflow-hidden">
-        <div className="shadow" style={sstyle}>
-          <div className={logostyle}>
-            <a className="" href="/">
-              <img
-                src={logo}
-                className="ms-3 mt-3 me-1"
-                alt="logo"
-                height={"32rem"}
-              />
-            </a>
-            <button
-              className="btn ms-1"
-              type="button"
-              onClick={() => setToggle(!toggle)}
-              style={{ border: "none" }}
-            >
-              <span style={{ fontSize: "32px" }}>
-                <i class="bi bi-list"></i>
-              </span>
+
+      <div className='row vh-100' style={{ position: 'fixed', left: '0', right: '0' }}>
+
+        <div className="shadow" style={ sstyle }>
+          <div className={ logostyle } >
+            <a className="" href="/"><img src={ logo } className='ms-3 mt-3 me-1' alt='logo' height={ '32rem' } /></a>
+            <button className="btn ms-1" type="button" onClick={ () => setToggle( !toggle ) } style={{border:'none'}}>
+              <span style={ { fontSize: '32px' } }><i class="bi bi-list"></i></span>
+
             </button>
           </div>
           <ul className="sidebar-menu d-flex flex-column ms-0 ps-4 pe-3">
@@ -141,9 +132,10 @@ export default function Admin() {
           </ul>
         </div>
 
-        {/* main conten  */}
-        <div className="" style={{ flex: "1", backgroundColor: "#f5f5f5" }}>
-          {displayContent()}
+        {/* main conten  */ }
+        <div className=''  style={{ flex: '1', backgroundColor: '#f5f5f5', overflowY: 'auto', maxHeight: '100vh',}}>
+          { displayContent() }
+
         </div>
       </div>
     </>
