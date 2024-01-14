@@ -4,7 +4,7 @@ const Home = lazy(() => import("../pages/Home"));
 const Admin = lazy(() => import("../pages/Admin"));
 const Profile = lazy(() => import("../pages/Profile"));
 const Quizzes = lazy(() => import("../pages/Quizzes"));
-const Questions = lazy(() => import("../pages/Questions"));
+const Quiz = lazy(() => import("../pages/Quiz"));
 const Leaderboard = lazy(() => import("../pages/Leaderboard"));
 const Page404 = lazy(() => import("../pages/Page404"));
 
@@ -13,8 +13,8 @@ const routingData = {
   "/": <Home />,
   "/admin": <Admin />,
   "/profile": <Profile />,
-  "/quizzes": <Quizzes />,
-  "/quiz/:id": <Questions />,
+  "/quiz": <Quizzes />,
+  "/quiz/:id": <Quiz />,
   "/leaderboard": <Leaderboard />,
 
   "*": <Page404 />,

@@ -87,7 +87,7 @@ export default function Result(props) {
             </div>
 
 
-            <Link to={'/quizzes'}>  <button className='btn btn-dark px-5'>
+            <Link to={'/quiz'}>  <button className='btn btn-dark px-5'>
                 GO Home
             </button></Link>
         </div>

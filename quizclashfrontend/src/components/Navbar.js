@@ -22,7 +22,7 @@ export default function Navbar ( props )
                                 <a className={ `navlink nav-hover ${ ( props.tab === 'about' ) ? 'active' : '' }` } href="#about">About US</a>
                             </li>
                             <li className="nav-item">
-                                <a className={ `navlink nav-hover ${ ( page === 'quizzes' ) ? 'active' : '' }` } href="/quizzes">Quizzes</a>
+                                <a className={ `navlink nav-hover ${ ( page === 'quizzes' ) ? 'active' : '' }` } href="/quiz">Quizzes</a>
                             </li>
                             <li className="">
                                 <a className={ `navlink nav-hover ${ ( page === 'leaderboard' ) ? 'active' : '' }` } href="/leaderboard">Leader Board</a>
@@ -31,7 +31,7 @@ export default function Navbar ( props )
                     </div>
                 </div>
             </nav>
-            <div className="offcanvas offcanvas-end" data-bs-backdrop="static" tabIndex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel" style={{width:'15rem',backgroundColor: 'rgba(255, 255, 255, 0.8)', backdropFilter: 'blur(5px)'}}>
+            <div className="offcanvas offcanvas-end" data-bs-backdrop="static" tabIndex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel" style={{width:'15rem',backgroundColor: 'rgba(255, 255, 255)', backdropFilter: 'blur(5px)'}}>
                 <div className="offcanvas-header">
                     <a className="" href="/"><img src={ logo } alt='logo' height={ '30rem' } /></a>
                     <button typeof="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -46,7 +46,7 @@ export default function Navbar ( props )
                             <a className={ `navlink nav-hover ${ ( props.tab === 'about' ) ? 'active' : '' }` } href="#about">About US</a>
                         </li>
                         <li className="nav-item">
-                            <a className={ `navlink nav-hover ${ ( page === 'quizzes' ) ? 'active' : '' }` } href="/quizzes">Quizzes</a>
+                            <a className={ `navlink nav-hover ${ ( page === 'quizzes' ) ? 'active' : '' }` } href="/quiz">Quizzes</a>
                         </li>
                         <li className="">
                             <a className={ `navlink nav-hover ${ ( page === 'leaderboard' ) ? 'active' : '' }` } href="/leaderboard">Leader Board</a>

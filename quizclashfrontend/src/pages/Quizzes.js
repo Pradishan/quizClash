@@ -14,6 +14,7 @@ export default function Quizzes() {
   const [loading, setLoading] = useState(true);
   const [quizzes, setQuizzes] = useState(null);
 
+
   // fetch Quiz
   const fetchQuiz = useCallback(async () => {
     setLoading(true);
@@ -21,8 +22,8 @@ export default function Quizzes() {
       .get("quiz/")
       .then((response) => {
         if (response.status === 200) {
-          setQuizzes(response.data.data);
-          // console.log(response.data.data)
+          setQuizzes(response.data);
+          // console.log(response.data) 
         }
       })
       .catch((error) => {
@@ -34,7 +35,7 @@ export default function Quizzes() {
   }, [setQuizzes, setLoading]);
 
   useEffect(() => {
-    fetchQuiz()
+   fetchQuiz();
   }, [fetchQuiz]);
 
   return (
