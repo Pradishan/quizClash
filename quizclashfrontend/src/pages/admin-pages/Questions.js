@@ -71,7 +71,7 @@ export default function Questions() {
   ];
 
   return (
-    <div className="container vh-100">
+    <div className="">
       <div className="row">
         <div className="d-flex my-1">
           <button type="button" className="btn btn-dark ms-auto me-5">

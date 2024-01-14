@@ -24,7 +24,7 @@ export default function QuestionCard(props) {
                     <p className="text-muted">{props?.quiz?.description}</p>
                     <div className='d-flex justify-content-between'>
                         <p className={`${level(props?.quiz?.level)} fw-bold m-0`}>{props?.quiz?.level}</p>
-                        <p className='text-primary m-0'>{props?.quiz?.point}xp <i className="bi bi-star-fill text-warning"></i></p>
+                        <p className='text-primary m-0'>{props?.quiz?.xp}xp <i className="bi bi-star-fill text-warning"></i></p>
                     </div>
                 </div>
             </div>
