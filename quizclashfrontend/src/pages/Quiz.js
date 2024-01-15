@@ -14,14 +14,14 @@ export default function Quiz() {
     // Function to convert API response to the desired format
     const formatQuestions = (apiQuestions) => {
         return apiQuestions.map((question) => ({
-            numb: question.number,
-            question: question.question,
-            answer: question.answer,
+            numb: question?.number,
+            question: question?.question,
+            answer: question?.answer,
             options: [
-                question.option1,
-                question.option2,
-                question.option3,
-                question.option4,
+                question?.option1,
+                question?.option2,
+                question?.option3,
+                question?.option4,
             ],
         }));
     };
@@ -49,11 +49,19 @@ export default function Quiz() {
     }, [fetchQuestions]);
 
     return (
-        <>  
-                  <Navbar />
-            {(loading) ? (<LodingSpinner />) : (
-                    <Questions question ={formatQuestions(questions)}/>
-                )}
+        <>
+            <Navbar />
+            {(loading) ? (
+                <LodingSpinner />
+            ) : (
+                <>
+                    {questions && questions.length > 0 ? (
+                        <Questions question={formatQuestions(questions)} />
+                    ) : (
+                        <div className='text-center mt-5'>No questions available for this quiz.</div>
+                    )}
+                </>
+            )}
         </>
     )
 }

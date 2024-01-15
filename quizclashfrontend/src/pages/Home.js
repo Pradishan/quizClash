@@ -1,11 +1,9 @@
 import React, { lazy } from 'react'
-import Result from '../components/Result';
-
 
 const Navbar = lazy(() => import('../components/Navbar'));
 const Footer = lazy(() => import('../components/Footer'));
 
-export default function Home() {
+export default function Home() { 
     return (
         <>
             <Navbar page={'home'} />
@@ -20,10 +18,7 @@ export default function Home() {
                     margin: ' auto 10rem',
                 }}>
 
-
-                    <Result score={2} nOfQuiz={15} />
-               
-                </div>
+                 </div>
             </center>
 
             <Footer />

@@ -1,9 +1,12 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import routingData from './data/routingData';
+import privateRoutingData from './data/privateRoutingData';
 import { Suspense } from 'react';
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
+import PrivateRoute from './util/PrivateRoute';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -25,9 +28,18 @@ function App() {
         <ToastContainer limit={1} />
 
         <Routes>
+          
           {Object.keys(routingData).map((key) => {
             return <Route key={key} path={key} element={routingData[key]} />;
           })}
+
+          <Route element={<PrivateRoute />} >
+
+            {Object.keys(privateRoutingData).map((key) => {
+              return <Route key={key} path={key} element={privateRoutingData[key]} />;
+            })}
+
+          </Route>
         </Routes>
       </Suspense>
 

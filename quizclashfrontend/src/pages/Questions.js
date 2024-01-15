@@ -118,7 +118,7 @@ export default function Questions(props) {
         <>
             <center>
                 <h1>{state.some}</h1>
-                <div className='quiz-container mt-3 p-4' key={question.number}>
+                <div className='quiz-container mt-3 p-4' key={question?.number}>
                     {renderStartButton()}
                     {(showQuestion) ? (
                         <>
@@ -145,11 +145,11 @@ export default function Questions(props) {
                                 {/* Question */}
                                 <div className='d-flex'>
                                     <span className='fs-3 fw-bold m-0 me-2'>{index + 1}</span>
-                                    <p className='fs-4 text-start text-justify'>{question.question}</p>
+                                    <p className='fs-4 text-start text-justify'>{question?.question}</p>
                                 </div>
                             </div>
                             {/* answers */}
-                            {question.options.map((option) => (
+                            {question?.options.map((option) => (
                                 <div className='row'>
                                     <div key={option}>
                                         <p
