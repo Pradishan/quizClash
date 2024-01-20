@@ -1,10 +1,13 @@
 import React from 'react'
 import logo from '../assets/logo.png';
 import '../styles/nav.css'
+import Logut from '../util/Logut';
+import { getAccessToken } from '../util/Authentication';
 
 export default function Navbar ( props )
 {
     const page = props.page;
+
     return (
         <>
             <nav className="navbar navbar-expand-lg sticky-top">
@@ -26,6 +29,9 @@ export default function Navbar ( props )
                             </li>
                             <li className="">
                                 <a className={ `navlink nav-hover ${ ( page === 'leaderboard' ) ? 'active' : '' }` } href="/leaderboard">Leader Board</a>
+                            </li>
+                            <li className="">
+                                {getAccessToken()?<Logut />: <a className={ `navlink nav-hover ` } href="/login">Login</a>}
                             </li>
                         </ul>
                     </div>

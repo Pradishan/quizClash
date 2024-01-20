@@ -5,7 +5,11 @@ from django.contrib.auth import authenticate
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id','email','username','first_name','last_name','password','phone','address','is_staff')
+        fields = ('id','email','username','first_name','last_name','password','phone','address','is_staff','score')
+class UserLoginSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id','email','username','first_name','last_name','phone','address','is_staff')
 
 
 class CreateUserSerializer(serializers.ModelSerializer):
@@ -62,8 +66,8 @@ class LoginSerializer(serializers.Serializer):
 
         if not user:
             raise serializers.ValidationError('Wrong credentials.')
-    
-        attrs['user'] = user
+
+        attrs['user'] = user;
         return attrs
     
 class QuizSerializer(serializers.ModelSerializer):

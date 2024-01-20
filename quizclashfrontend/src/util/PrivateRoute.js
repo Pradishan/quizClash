@@ -1,8 +1,10 @@
-import { Outlet,Navigate } from 'react-router-dom'
+import React from 'react'
+import { Outlet, Navigate } from 'react-router-dom'
+import { getAccessToken } from './Authentication'
 
 export default function PrivateRoute() {
-    let auth = {token:sessionStorage.getItem("Token")};
+
   return (
-    (auth.token !== null)? <Outlet />:<Navigate to={'/login'} />
+    (getAccessToken()) ? <Outlet /> : <Navigate to={'/login'} />
   )
 }

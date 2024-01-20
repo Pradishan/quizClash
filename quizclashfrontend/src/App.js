@@ -7,10 +7,30 @@ import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import PrivateRoute from './util/PrivateRoute';
 import "react-toastify/dist/ReactToastify.css";
+import AdminRoute from './util/AdminRoute';
+import adminRoutingData from './data/adminRoutingData';
+import { getAccessToken } from './util/Authentication';
 
 function App() {
+
   axios.defaults.withCredentials = true;
   axios.defaults.baseURL = "http://localhost:8000/";
+
+// if auth token available then config 
+  axios.interceptors.request.use(
+    (config) => {
+      const authToken = getAccessToken();
+      
+      if (authToken) {
+        config.headers.Authorization = `Token ${authToken}`;
+      }
+  
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
 
   return (
     <div className="App">
@@ -33,10 +53,20 @@ function App() {
             return <Route key={key} path={key} element={routingData[key]} />;
           })}
 
+          {/* private  */}
           <Route element={<PrivateRoute />} >
 
             {Object.keys(privateRoutingData).map((key) => {
               return <Route key={key} path={key} element={privateRoutingData[key]} />;
+            })}
+
+          </Route>
+
+          {/* admin */}
+          <Route element={<AdminRoute />} >
+
+            {Object.keys(adminRoutingData).map((key) => {
+              return <Route key={key} path={key} element={adminRoutingData[key]} />;
             })}
 
           </Route>

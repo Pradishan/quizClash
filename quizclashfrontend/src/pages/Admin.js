@@ -3,6 +3,7 @@ import "../styles/sidebar.css";
 
 import logo1 from "../assets/logo.png";
 import logo2 from "../assets/lgogsymbol.png";
+import Logut from "../util/Logut";
 
 const Dashboard = lazy(() => import("./admin-pages/Dashboard"));
 const Questions = lazy(() => import("./admin-pages/Questions"));
@@ -129,6 +130,9 @@ export default function Admin() {
                 Settings
               </span>
             </div>
+
+              <Logut />
+
           </ul>
         </div>
 

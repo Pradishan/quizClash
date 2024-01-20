@@ -8,8 +8,7 @@ import certificateimg from '../assets/certificates.jpg';
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
 
-export default function Profile ()
-{
+export default function Profile() {
 
   return (
     <>
@@ -18,7 +17,7 @@ export default function Profile ()
 
         <div className="infocardContainer">
           <div id="main">
-            <img src={ proPic } alt="Profile" />
+            <img src={proPic} alt="Profile" />
           </div>
           <div id="textbois">
             <h3>Emil Alicic</h3>
@@ -27,7 +26,7 @@ export default function Profile ()
 
             <div id="hotlinks">
               <a href="/">
-                <img id="codepenio" src={ starimg } alt="Sri Lanka" />
+                <img id="codepenio" src={starimg} alt="Sri Lanka" />
               </a>
               275 XP
             </div>
@@ -51,7 +50,7 @@ export default function Profile ()
                     <h6 className="mb-0">Full Name</h6>
                   </div>
                   <div className="col-sm-9 text-secondary">
-                    Kenneth Valdez
+                    {localStorage.getItem("FIRST_NAME")} {localStorage.getItem("LAST_NAME")}
                   </div>
                 </div>
                 <hr />
@@ -60,7 +59,7 @@ export default function Profile ()
                     <h6 className="mb-0">Email</h6>
                   </div>
                   <div className="col-sm-9 text-secondary">
-                    fip@jukmuh.al
+                    {localStorage.getItem("EMAIL")}
                   </div>
                 </div>
                 <hr />
@@ -69,16 +68,7 @@ export default function Profile ()
                     <h6 className="mb-0">Phone</h6>
                   </div>
                   <div className="col-sm-9 text-secondary">
-                    (239) 816-9029
-                  </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Mobile</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">
-                    (320) 380-4539
+                    {localStorage.getItem("PHONE")}
                   </div>
                 </div>
                 <hr />
@@ -87,18 +77,18 @@ export default function Profile ()
                     <h6 className="mb-0">Address</h6>
                   </div>
                   <div className="col-sm-9 text-secondary">
-                    Bay Area, San Francisco, CA
+                    {localStorage.getItem("ADDRESS")}
                   </div>
                 </div>
                 <hr />
                 <div className="row">
 
-                  {/*end edit modal*/ }
-                  <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" style={ { width: '15%' } }>
+                  {/*end edit modal*/}
+                  <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" style={{ width: '15%' }}>
                     Edit Profile
                   </button>
 
-                  {/*start edit modal*/ }
+                  {/*start edit modal*/}
                   <div className="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                       <div className="modal-content">
@@ -140,7 +130,7 @@ export default function Profile ()
                     </div>
                   </div>
 
-                  {/*end edit modal*/ }
+                  {/*end edit modal*/}
                 </div>
               </div>
             </div>
@@ -151,17 +141,17 @@ export default function Profile ()
                 <div className="card h-100">
                   <div className="card-body">
                     <h4 className="d-flex align-items-center mb-3">Previous Quizzzes</h4>
-                    { /*Quiz Card */ }
+                    { /*Quiz Card */}
                     <div className="quiz-card">
                       <div className="row">
                         <div className="col-md-6">
-                          <img className="card-img" src={ pythonimg } alt="QuizImage" />
+                          <img className="card-img" src={pythonimg} alt="QuizImage" />
                         </div>
                         <div className="col-md-6">
                           <div className="card-details">
                             <div className="card-title">Python</div>
                             <div className="progress">
-                              <div className="progress-bar" role="progressbar" style={ { width: '20%' } } aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
+                              <div className="progress-bar" role="progressbar" style={{ width: '20%' }} aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
                             </div>
                             <div className="card-description"></div>Your score: 20%</div>
                         </div>
@@ -181,16 +171,16 @@ export default function Profile ()
                 <div className="card h-100">
                   <div className="card-body">
                     <h4 className="d-flex align-items-center mb-3">Certificates</h4>
-                    {/*Course Card */ }
+                    {/*Course Card */}
                     <div className="col-md-12">
                       <div className="course-card">
-                        <img className="card-img" src={ certificateimg } alt="CourseImage" />
+                        <img className="card-img" src={certificateimg} alt="CourseImage" />
                         <div className="card-details">
                           <div className="card-title">Java</div>
 
                           <div className="card-description">Issued Date: 2023.05.21</div>
                           <div className="course-action">
-                            <button type="button" className="btn btn-primary" style={ { width: '15%' } }>
+                            <button type="button" className="btn btn-primary" style={{ width: '15%' }}>
                               View
                             </button>
                           </div>
@@ -207,12 +197,6 @@ export default function Profile ()
 
         </div>
       </div>
-
-
-
-
-
-
 
 
       <Footer />

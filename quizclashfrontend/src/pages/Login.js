@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import tostDefault from '../data/tostDefault';
+import logo from '../assets/logo.png';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { initialNavigate, loadCridential, removeCookie, removeCridential, setCookie } from '../util/Authentication';
 
 export default function Login() {
 
@@ -21,7 +23,7 @@ export default function Login() {
     }
 
 
-    // contact form submittion function
+    // contact form submition function
     const submitForm = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -30,17 +32,17 @@ export default function Login() {
             .post("accounts/login/", formData)
             .then((response) => {
                 setLoading(false);
-                console.log(response.data)
+                // console.log(response.data)
                 if (response.status === 200) {
 
-                    sessionStorage.setItem(
-                        "Token",
-                        response.data.token
-                    );
-                    console.log({ "Token": sessionStorage.getItem("Token") });
+                    setCookie("TOKEN", response.data.token, 2)
 
-                    if (response.data.user.is_staff) navigate("/admin")
-                    else navigate("/")
+                    loadCridential(response.data.user)
+
+                    // console.log({ "Token": localStorage.getItem("Token") });
+                    // console.log({ "id": localStorage.getItem("ID") });
+
+                    navigate(initialNavigate());
 
                     toast.update(id, {
                         ...tostDefault,
@@ -70,11 +72,15 @@ export default function Login() {
                         closeButton: true,
                     });
                 }
+
+                removeCookie("TOKEN")
+                removeCridential()
+
                 setLoading(false);
                 console.log({
-                    message:error.message,
-                    code:error.code,
-                    response:error.response.data
+                    message: error.message,
+                    code: error.code,
+                    response: error.response.data
                 });
                 setFormData({
                     "email": formData.email,
@@ -85,6 +91,11 @@ export default function Login() {
 
     return (
         <>
+            <nav className="navbar navbar-expand-lg sticky-top">
+                <div className="container justify-content-center">
+                    <a className="py-1" href="/"><img src={logo} alt='logo' height={'30rem'} /></a>
+                </div>
+            </nav>
             <center><div className='justify-cintent-center' style={{ maxWidth: '20rem', marginTop: '10rem' }}>
                 <h2 className='m-2 py-2'>Login</h2>
                 <form onSubmit={(e) => (submitForm(e))}>
