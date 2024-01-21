@@ -3,7 +3,7 @@ import axios from "axios";
 import tostDefault from '../data/tostDefault';
 import logo from '../assets/logo.png';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { initialNavigate, loadCridential, removeCookie, removeCridential, setCookie } from '../util/Authentication';
 
 export default function Login() {
@@ -23,7 +23,7 @@ export default function Login() {
     }
 
 
-    // contact form submition function
+    // form submition function
     const submitForm = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -63,7 +63,15 @@ export default function Login() {
                         isLoading: false,
                         closeButton: true,
                     });
-                } else {
+                } else if(error?.code === "ERR_NETWORK"){
+                    toast.update(id, {
+                        ...tostDefault,
+                        render: "Network Error",
+                        type: "error",
+                        isLoading: false,
+                        closeButton: true,
+                    });
+                }else {
                     toast.update(id, {
                         ...tostDefault,
                         render: "Something went wrong",
@@ -72,7 +80,6 @@ export default function Login() {
                         closeButton: true,
                     });
                 }
-
                 removeCookie("TOKEN")
                 removeCridential()
 
@@ -80,7 +87,7 @@ export default function Login() {
                 console.log({
                     message: error.message,
                     code: error.code,
-                    response: error.response.data
+                    response: error.response?.data
                 });
                 setFormData({
                     "email": formData.email,
@@ -118,6 +125,7 @@ export default function Login() {
                         )}
                     </button>
                 </form>
+                New User? <Link to={'/signup'} style={{ textDecoration: 'none' }}>Signup</Link>
             </div>
             </center>
         </>
