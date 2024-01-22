@@ -21,22 +21,6 @@ export default function Users() {
                     <div className="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
                       <h2 className="ml-lg-2">Users</h2>
                     </div>
-                    <div className="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
-                      <a
-                        href="#"
-                        className="btn-btn-success"
-                        data-toggle="modal"
-                      >
-                        <span>Add Users</span>
-                      </a>
-                      <a
-                        href="#"
-                        className="btn-btn-success"
-                        data-toggle="modal"
-                      >
-                        <span>Delete</span>
-                      </a>
-                    </div>
                   </div>
 
                   <table className="table table-stripped table-hover">
