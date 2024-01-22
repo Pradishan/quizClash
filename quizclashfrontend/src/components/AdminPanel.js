@@ -5,6 +5,7 @@ import "../styles/admin-panel.css";
 
 export default function AdminPanel() {
   return (
+    <div className="card-wrapper">
     <div className="container mt-5">
       <h2>Admin Panel</h2>
       <div className="row mt-5">
@@ -105,5 +106,7 @@ export default function AdminPanel() {
         </div>
       </div>
     </div>
+    </div>
+
   );
 }
