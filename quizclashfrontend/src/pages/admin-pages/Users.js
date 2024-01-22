@@ -67,6 +67,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
@@ -104,6 +105,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
@@ -141,6 +143,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
@@ -178,6 +181,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
@@ -215,6 +219,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
