@@ -34,7 +34,6 @@ export default function Users() {
                         </th>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Role</th>
                         <th>Email</th>
                         <th>Phone No</th>
                         <th>Actions</th>
@@ -55,7 +54,6 @@ export default function Users() {
                         </th>
                         <th>001</th>
                         <th>Nimesha Maduwanthi</th>
-                        <th>Student</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
@@ -92,7 +90,6 @@ export default function Users() {
                         </th>
                         <th>002</th>
                         <th>Pradishan</th>
-                        <th>Student</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
@@ -129,7 +126,6 @@ export default function Users() {
                         </th>
                         <th>003</th>
                         <th>Dilshan</th>
-                        <th>Student</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
@@ -166,7 +162,6 @@ export default function Users() {
                         </th>
                         <th>004</th>
                         <th>Nimesha Maduwanthi</th>
-                        <th>Student</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
@@ -203,7 +198,6 @@ export default function Users() {
                         </th>
                         <th>005</th>
                         <th>Nimesha Maduwanthi</th>
-                        <th>Student</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
