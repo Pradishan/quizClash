@@ -13,7 +13,7 @@ export default function Dashboard() {
             <div className="p-3 bg-success shadow-sm d-flex justify-content-around align-items-center rounded">
               <i className="bi bi-book p-3 fs-1"></i>
               <div>
-                <p className="fs-5"> Quiz Attempts </p>
+                <p className="fs-5"> Total Quizzes </p>
                 <h3 className="fs-2">198</h3>
               </div>
             </div>
@@ -31,7 +31,7 @@ export default function Dashboard() {
             <div className="p-3 bg-secondary shadow-sm d-flex justify-content-around align-items-center rounded">
               <i className="bi bi-people p-3 fs-1"></i>
               <div>
-                <p className="fs-5"> Total Participants </p>
+                <p className="fs-5"> Total Questions </p>
                 <h3 className="fs-2">6088</h3>
               </div>
             </div>
@@ -40,41 +40,8 @@ export default function Dashboard() {
 
         <div className="row">
           <div className="col-lg-8 col-md-6 col-sm-12">
-            <h5 className="mt-3 mb-3 text-secondary">Quiz Details</h5>
-            <div className="table-responsive">
-              <table className="table table-striped">
-                <thead className="thead-light">
-                  <tr>
-                    <th>User</th>
-                    <th>Quiz Id </th>
-                    <th>No of Attempts</th>
-                    <th>Total Quizzes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Nimesha Maduwanthi</td>
-                    <td>Q01</td>
-                    <td>2</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Pradishan</td>
-                    <td>Q02</td>
-                    <td>2</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Dilshan</td>
-                    <td>Q03</td>
-                    <td>5</td>
-                    <td>5</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
             <div>
-                <Bargraph/>
+              <Bargraph />
             </div>
           </div>
         </div>

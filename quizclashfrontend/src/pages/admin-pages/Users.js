@@ -5,8 +5,7 @@ export default function Users() {
   return (
     <div className="wrapper">
       <div className="body-overlay">
-        <div id="sidebar">
-        </div>
+        <div id="sidebar"></div>
       </div>
       <div id="content">
         <div>
@@ -23,6 +22,7 @@ export default function Users() {
                     </div>
                   </div>
 
+                  {/*Table of User Information*/}
                   <table className="table table-stripped table-hover">
                     <thead>
                       <tr>
@@ -59,19 +59,25 @@ export default function Users() {
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
-                          <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-primary">
-                              Edit
+                          <a href="#" className="view" data-toggle="modal">
+                            <button
+                              type="button"
+                              className="btn btn-success btn-sm"
+                            >
+                              View
                             </button>
                           </a>
                           <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-danger">
+                            <button
+                              type="button"
+                              className="btn btn-danger btn-sm"
+                            >
                               Block
                             </button>
                           </a>
                         </th>
                       </tr>
-                      
+
                       <tr>
                         <th>
                           <span className="custom-checkbox">
@@ -90,13 +96,19 @@ export default function Users() {
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
-                          <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-primary">
-                              Edit
+                          <a href="#" className="view" data-toggle="modal">
+                            <button
+                              type="button"
+                              className="btn btn-success btn-sm"
+                            >
+                              View
                             </button>
                           </a>
                           <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-danger">
+                            <button
+                              type="button"
+                              className="btn btn-danger btn-sm"
+                            >
                               Block
                             </button>
                           </a>
@@ -121,13 +133,19 @@ export default function Users() {
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
-                          <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-primary">
-                              Edit
+                          <a href="#" className="view" data-toggle="modal">
+                            <button
+                              type="button"
+                              className="btn btn-success btn-sm"
+                            >
+                              View
                             </button>
                           </a>
                           <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-danger">
+                            <button
+                              type="button"
+                              className="btn btn-danger btn-sm"
+                            >
                               Block
                             </button>
                           </a>
@@ -152,13 +170,19 @@ export default function Users() {
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
-                          <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-primary">
-                              Edit
+                          <a href="#" className="view" data-toggle="modal">
+                            <button
+                              type="button"
+                              className="btn btn-success btn-sm"
+                            >
+                              View
                             </button>
                           </a>
                           <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-danger">
+                            <button
+                              type="button"
+                              className="btn btn-danger btn-sm"
+                            >
                               Block
                             </button>
                           </a>
@@ -183,13 +207,19 @@ export default function Users() {
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
                         <th>
-                          <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-primary">
-                              Edit
+                          <a href="#" className="view" data-toggle="modal">
+                            <button
+                              type="button"
+                              className="btn btn-success btn-sm"
+                            >
+                              View
                             </button>
                           </a>
                           <a href="#" className="edit" data-toggle="modal">
-                            <button type="button" className="btn btn-danger">
+                            <button
+                              type="button"
+                              className="btn btn-danger btn-sm"
+                            >
                               Block
                             </button>
                           </a>
