@@ -8,6 +8,9 @@ export default function Dashboard() {
       <TopNavbar />
 
       <div className="container-fluid">
+        <div className="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+          <h2 className="ml-lg-2">Dashboard</h2>
+        </div>
         <div className="row g-3 my-2">
           <div className="col-md-4 p-1">
             <div className="p-3 bg-success shadow-sm d-flex justify-content-around align-items-center rounded">
@@ -37,7 +40,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
+        {/*Bargraph */}
         <div className="row">
           <div className="col-lg-8 col-md-6 col-sm-12">
             <div>
