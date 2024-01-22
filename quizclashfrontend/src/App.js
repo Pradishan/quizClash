@@ -16,18 +16,28 @@ function App() {
   axios.defaults.withCredentials = true;
   axios.defaults.baseURL = "http://localhost:8000/";
 
-// if auth token available then config 
+  // if auth token available then config 
   axios.interceptors.request.use(
     (config) => {
       const authToken = getAccessToken();
-      
+
       if (authToken) {
         config.headers.Authorization = `Token ${authToken}`;
       }
-  
+
       return config;
     },
     (error) => {
+      if (axios.isCancel(error)) {
+        console.error('Request canceled:', error.message);
+      } else if (error.response) {
+        console.error('Server responded with an error:', error.response.data);
+        console.error('Status code:', error.response.status);
+      } else if (error.request) {
+        console.error('No response received:', error.request);
+      } else {
+        console.error('Request setup error:', error.message);
+      }
       return Promise.reject(error);
     }
   );
@@ -48,7 +58,7 @@ function App() {
         <ToastContainer limit={1} />
 
         <Routes>
-          
+
           {Object.keys(routingData).map((key) => {
             return <Route key={key} path={key} element={routingData[key]} />;
           })}
