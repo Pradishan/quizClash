@@ -1,6 +1,7 @@
 import React from "react";
 import TopNavbar from "../../components/TopNavbar";
 import Bargraph from "../../components/Bargraph";
+import AdminPanel from "../../components/AdminPanel";
 
 export default function Dashboard() {
   return (
@@ -46,6 +47,12 @@ export default function Dashboard() {
             <div>
               <Bargraph />
             </div>
+          </div>
+        </div>
+        {/*Admin Panel*/}
+        <div className="row">
+          <div className="col-lg-8 col-md-6 col-sm-12">
+            <AdminPanel />
           </div>
         </div>
       </div>

@@ -36,6 +36,7 @@ export default function Users() {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone No</th>
+                        <th>Score</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -56,6 +57,7 @@ export default function Users() {
                         <th>Nimesha Maduwanthi</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
+                        <th>80</th>
                         <th>
                           <a href="#" className="view" data-toggle="modal">
                             <button
@@ -92,6 +94,7 @@ export default function Users() {
                         <th>Pradishan</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
+                        <th>70</th>
                         <th>
                           <a href="#" className="view" data-toggle="modal">
                             <button
@@ -128,6 +131,7 @@ export default function Users() {
                         <th>Dilshan</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
+                        <th>60</th>
                         <th>
                           <a href="#" className="view" data-toggle="modal">
                             <button
@@ -164,6 +168,7 @@ export default function Users() {
                         <th>Nimesha Maduwanthi</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
+                        <th>80</th>
                         <th>
                           <a href="#" className="view" data-toggle="modal">
                             <button
@@ -200,6 +205,7 @@ export default function Users() {
                         <th>Nimesha Maduwanthi</th>
                         <th>maduwanthi20@gmail.com</th>
                         <th>0716835447 No</th>
+                        <th>90</th>
                         <th>
                           <a href="#" className="view" data-toggle="modal">
                             <button
