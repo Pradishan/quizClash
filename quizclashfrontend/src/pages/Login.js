@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios";
 import tostDefault from '../data/tostDefault';
 import logo from '../assets/logo.png';
+import '../styles/nav.css'
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { initialNavigate, loadCridential, removeCookie, removeCridential, setCookie } from '../util/Authentication';
@@ -99,11 +100,11 @@ export default function Login() {
     return (
         <>
             <nav className="navbar navbar-expand-lg sticky-top">
-                <div className="container justify-content-center">
+                <div className="container ">
                     <a className="py-1" href="/"><img src={logo} alt='logo' height={'30rem'} /></a>
                 </div>
             </nav>
-            <center><div className='justify-cintent-center' style={{ maxWidth: '20rem', marginTop: '10rem' }}>
+            <center><div className='justify-cintent-center px-md-2' style={{ maxWidth: '20rem', marginTop: '10rem' }}>
                 <h2 className='m-2 py-2'>Login</h2>
                 <form onSubmit={(e) => (submitForm(e))}>
                     <div className="form-floating mb-3">

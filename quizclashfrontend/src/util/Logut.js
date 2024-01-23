@@ -17,7 +17,6 @@ export default function Logut() {
             .post("accounts/logout/")
             .then((response) => {
                 setLoading(false);
-                console.log(response.data)
                 if (response.status === 204) {
 
                     removeCookie("TOKEN")

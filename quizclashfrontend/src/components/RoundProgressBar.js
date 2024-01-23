@@ -16,7 +16,7 @@ const RoundProgressBar = ({ progress, strokeWidth, circleRadius, padding }) => {
   return (
     <div style={{ width: '100%', textAlign: 'center' }}>
       <svg
-        width="100%"
+        width="auto"
         height="auto"
         viewBox={`0 0 ${circleRadius * 2 + padding * 2} ${circleRadius * 2 + padding * 2}`}
         style={{

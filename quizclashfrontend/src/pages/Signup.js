@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { lazy, useState } from 'react'
 import logo from '../assets/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import tostDefault from '../data/tostDefault';
+
+
+const Footer = lazy(() => (import('../components/Footer')))
 
 export default function Signup() {
 
@@ -101,11 +104,11 @@ export default function Signup() {
     return (
         <>
             <nav className="navbar navbar-expand-lg sticky-top">
-                <div className="container justify-content-center">
+                <div className="container">
                     <a className="py-1" href="/"><img src={logo} alt='logo' height={'30rem'} /></a>
                 </div>
             </nav>
-            <center><div className='justify-cintent-center' style={{ maxWidth: '30rem', }}>
+            <center><div className='justify-cintent-center p-3 vh-100' style={{ maxWidth: '30rem', }}>
                 <h2 className='m-2 py-2'>Signup</h2>
                 <form onSubmit={(e) => (submitForm(e))} className=''>
                     <div className="form-floating mb-3">
@@ -157,9 +160,10 @@ export default function Signup() {
                         )}
                     </button>
                 </form>
-                Already have an account? <Link to={'/signup'} style={{ textDecoration: 'none' }}>Login</Link>
+                Already have an account? <Link to={'/login'} style={{ textDecoration: 'none' }}>Login</Link>
             </div>
             </center>
+            <Footer/>
         </>
     )
 }

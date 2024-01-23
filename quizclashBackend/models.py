@@ -40,7 +40,6 @@ class User(AbstractBaseUser):
     score = models.IntegerField(null=True,blank=True)
 
     created_at = models.DateTimeField(default=timezone.now, editable=False)
-    # created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
 
     is_staff = models.BooleanField(default = False)
@@ -84,6 +83,8 @@ class Question(models.Model):
     
     def __str__(self):
         return self.question
+
+
     
 
     

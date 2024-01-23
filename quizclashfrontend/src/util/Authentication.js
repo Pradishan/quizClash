@@ -59,10 +59,44 @@ export function removeCridential() {
   localStorage.removeItem("LAST_NAME");
 }
 
-export function getAccessToken(){
+export function getAccessToken() {
   return getCookie('TOKEN')
 }
 
 export function adminAccess() {
   return getAccessToken() && localStorage.getItem("IS_STAFF") === 'true';
+}
+
+export function getUserID() {
+  return localStorage.getItem("USER_ID")
+}
+
+export function getUserEmail() {
+  return localStorage.getItem("EMAIL")
+}
+
+export function getUserAddress() {
+  return localStorage.getItem("ADDRESS")
+}
+
+export function getUserPhone() {
+  return localStorage.getItem("PHONE")
+}
+
+export function getUserName() {
+  return localStorage.getItem("USER_NAME")
+}
+export function getUserFirstName() {
+  return localStorage.getItem("FIRST_NAME")
+}
+export function getUserLastName() {
+  return localStorage.getItem("LAST_NAME")
+}
+
+export function getUserScore() {
+  return (localStorage.getItem("SCORE") !== "null") ? localStorage.getItem("SCORE") : 0;  
+}
+
+export function fetchUserData(){
+
 }

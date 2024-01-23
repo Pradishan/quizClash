@@ -118,7 +118,7 @@ export default function Questions(props) {
         <>
             <center>
                 <h1>{state.some}</h1>
-                <div className='quiz-container mt-3 p-4' key={question?.number}>
+                <div className='quiz-container mt-3 p-4' key={question.number}>
                     {renderStartButton()}
                     {(showQuestion) ? (
                         <>

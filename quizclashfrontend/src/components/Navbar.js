@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import logo from '../assets/logo.png';
 import '../styles/nav.css'
-import Logut from '../util/Logut';
 import { getAccessToken } from '../util/Authentication';
+
+const Logut = lazy(() => import('../util/Logut'))
 
 export default function Navbar ( props )
 {

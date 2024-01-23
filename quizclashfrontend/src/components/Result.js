@@ -2,16 +2,16 @@ import React, { lazy } from 'react'
 import { Link } from 'react-router-dom';
 
 const RoundProgressBar = lazy(() => import('./RoundProgressBar'))
+const SaveScore = lazy(() => import('./SaveScore'))
 
 
 export default function Result(props) {
 
-    const percentage = (((props?.score ?? 0) / (props?.nOfQuiz ?? 1)) * 100).toFixed(2);
+    const score = (props?.score ?? 0); 
 
+    const percentage = ((score / (props?.nOfQuiz ?? 1)) * 100).toFixed(2);
 
-
-
-    const getMessage  = () => {
+    const getMessage = () => {
         if (100 >= percentage && percentage >= 75) {
             return {
                 emoji: '🤩',
@@ -51,7 +51,7 @@ export default function Result(props) {
 
             <h2 className='mb-5'>Your Score</h2>
             <center>
-                <div class="ring p-1"
+                <div className="ring p-1"
                     style={{
                         width: '260px',
                         height: '260px',
@@ -81,15 +81,18 @@ export default function Result(props) {
 
                 <div className='bg-body-secondary rounded d-flex flex-column align-items-center mt-3 pb-2'>
                     <p className='my-1 fs-4 text-muted'>{getMessage().text}</p>
-                    <p className='my-1 fs-5'>You are earning <span className="fs-4 font-weight-bold mb-0 text-primary ms-2">{props?.score * 10}XP</span><i class="bi bi-star-fill text-warning fs-4"></i></p>
+                    <p className='my-1 fs-5'>You are earning <span className="fs-4 font-weight-bold mb-0 text-primary ms-2">{props?.score * 10}XP</span><i className="bi bi-star-fill text-warning fs-4"></i></p>
                 </div>
 
             </div>
 
 
-            <Link to={'/quiz'}>  <button className='btn btn-dark px-5'>
+            <Link to={'/quiz'}>  <button className='btn btn-dark px-5 m-2'>
                 GO Home
             </button></Link>
+
+            {(score > 0) && <SaveScore score={score} />}
+
         </div>
     )
 }

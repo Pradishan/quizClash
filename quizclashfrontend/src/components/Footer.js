@@ -5,7 +5,7 @@ export default function Footer ()
 {
     return (
         <>
-            <footer className='sticky-bottom' style={ { backgroundColor: '#F3F3F3' } }>
+            <footer className='sticky-bottom mt-3' style={ { backgroundColor: '#F3F3F3' } }>
                 <div className='d-flex justify-content-between mx-3'>
                     <div className='p-2'>
                         <p className='m-0 text-muted' style={ { fontSize: 'small' } }>Quizclash@info.com</p>

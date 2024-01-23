@@ -37,7 +37,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
 class UpdateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('email','first_name','last_name','address','phone','password')
+        fields = ('email','first_name','last_name','address','phone','password','score')
 
     def update(self,instance,validated_data):
         password = validated_data.pop('password', None)
@@ -69,7 +69,12 @@ class LoginSerializer(serializers.Serializer):
 
         attrs['user'] = user;
         return attrs
-    
+
+class ScoreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id','username','email','score')
+        
 class QuizSerializer(serializers.ModelSerializer):
     class Meta:
         model = Quiz

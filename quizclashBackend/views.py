@@ -39,7 +39,7 @@ class LoginAPIView(knox_views.LoginView):
             return Response({'errors':serializer.errors},status = status.HTTP_400_BAD_REQUEST)
         return Response(response.data,status = status.HTTP_200_OK)
     
-class GetUserAPIView(RetrieveAPIView):
+class GetUserAPIView(RetrieveAPIView,LoginAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = UserLoginSerializer
     queryset = User.objects.all()
