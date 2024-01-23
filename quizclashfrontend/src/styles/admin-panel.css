@@ -27,11 +27,25 @@
     border-radius: 50%;
     margin-top: -80px;
 }
-
 .h2{
+    text-align: center;
+}
+
+.main h2{
+    text-align: center;
+}
+
+.main h5{
     text-align: center;
 }
 
 .main{
     padding: 10px;
+}
+
+.card-wrapper{
+    background: linear-gradient(rgb(154, 73, 157));
+    
+
+
 }

@@ -18,7 +18,7 @@ export default function Users() {
                 <div className="table-title">
                   <div className="row">
                     <div className="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
-                      <h2 className="ml-lg-2">Users</h2>
+                      <h2 className="ml-lg-2"> Users </h2>
                     </div>
                   </div>
 
@@ -53,12 +53,12 @@ export default function Users() {
                             <label for="checkbox1"></label>
                           </span>
                         </th>
-                        <th>001</th>
-                        <th>Nimesha Maduwanthi</th>
-                        <th>maduwanthi20@gmail.com</th>
-                        <th>0716835447 No</th>
-                        <th>80</th>
-                        <th>
+                        <td>001</td>
+                        <td>Nimesha Maduwanthi</td>
+                        <td>maduwanthi20@gmail.com</td>
+                        <td>0716835447</td>
+                        <td>80</td>
+                        <td>
                           <a href="#" className="view" data-toggle="modal">
                             <button
                               type="button"
@@ -67,6 +67,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
@@ -75,7 +76,7 @@ export default function Users() {
                               Block
                             </button>
                           </a>
-                        </th>
+                        </td>
                       </tr>
 
                       <tr>
@@ -90,12 +91,12 @@ export default function Users() {
                             <label for="checkbox2"></label>
                           </span>
                         </th>
-                        <th>002</th>
-                        <th>Pradishan</th>
-                        <th>maduwanthi20@gmail.com</th>
-                        <th>0716835447 No</th>
-                        <th>70</th>
-                        <th>
+                        <td>002</td>
+                        <td>Pradishan</td>
+                        <td>maduwanthi20@gmail.com</td>
+                        <td>0716835447</td>
+                        <td>70</td>
+                        <td>
                           <a href="#" className="view" data-toggle="modal">
                             <button
                               type="button"
@@ -104,6 +105,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
@@ -112,7 +114,7 @@ export default function Users() {
                               Block
                             </button>
                           </a>
-                        </th>
+                        </td>
                       </tr>
 
                       <tr>
@@ -127,12 +129,12 @@ export default function Users() {
                             <label for="checkbox3"></label>
                           </span>
                         </th>
-                        <th>003</th>
-                        <th>Dilshan</th>
-                        <th>maduwanthi20@gmail.com</th>
-                        <th>0716835447 No</th>
-                        <th>60</th>
-                        <th>
+                        <td>003</td>
+                        <td>Dilshan</td>
+                        <td>maduwanthi20@gmail.com</td>
+                        <td>0716835447</td>
+                        <td>60</td>
+                        <td>
                           <a href="#" className="view" data-toggle="modal">
                             <button
                               type="button"
@@ -141,6 +143,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
@@ -149,7 +152,7 @@ export default function Users() {
                               Block
                             </button>
                           </a>
-                        </th>
+                        </td>
                       </tr>
 
                       <tr>
@@ -164,12 +167,12 @@ export default function Users() {
                             <label for="checkbox4"></label>
                           </span>
                         </th>
-                        <th>004</th>
-                        <th>Nimesha Maduwanthi</th>
-                        <th>maduwanthi20@gmail.com</th>
-                        <th>0716835447 No</th>
-                        <th>80</th>
-                        <th>
+                        <td>004</td>
+                        <td>Nimesha Maduwanthi</td>
+                        <td>maduwanthi20@gmail.com</td>
+                        <td>0716835447</td>
+                        <td>80</td>
+                        <td>
                           <a href="#" className="view" data-toggle="modal">
                             <button
                               type="button"
@@ -178,6 +181,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
@@ -186,7 +190,7 @@ export default function Users() {
                               Block
                             </button>
                           </a>
-                        </th>
+                        </td>
                       </tr>
 
                       <tr>
@@ -201,12 +205,12 @@ export default function Users() {
                             <label for="checkbox5"></label>
                           </span>
                         </th>
-                        <th>005</th>
-                        <th>Nimesha Maduwanthi</th>
-                        <th>maduwanthi20@gmail.com</th>
-                        <th>0716835447 No</th>
-                        <th>90</th>
-                        <th>
+                        <td>005</td>
+                        <td>Nimesha Maduwanthi</td>
+                        <td>maduwanthi20@gmail.com</td>
+                        <td>0716835447</td>
+                        <td>90</td>
+                        <td>
                           <a href="#" className="view" data-toggle="modal">
                             <button
                               type="button"
@@ -215,6 +219,7 @@ export default function Users() {
                               View
                             </button>
                           </a>
+                          
                           <a href="#" className="edit" data-toggle="modal">
                             <button
                               type="button"
@@ -223,7 +228,7 @@ export default function Users() {
                               Block
                             </button>
                           </a>
-                        </th>
+                        </td>
                       </tr>
                     </tbody>
                   </table>

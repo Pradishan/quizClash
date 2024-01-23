@@ -54,7 +54,7 @@ const BarGraph = () => {
           <div style={{ width: "100%" }}>
             <canvas
               id="barGraph"
-              style={{ width: "100%", height: "200px" }}
+              style={{ width: "100%", height: "250px" }}
             ></canvas>
           </div>
         </Col>
