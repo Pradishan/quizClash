@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { Outlet, Navigate } from 'react-router-dom'
-import { getAccessToken, getUserID, loadCridential, removeCridential } from './Authentication'
+import { getAccessToken, getUserID, loadCridential, removeCookie, removeCridential } from './Authentication'
 import axios from 'axios';
 
 export default function PrivateRoute() {
@@ -17,6 +17,7 @@ export default function PrivateRoute() {
       })
       .catch((error) => {
         console.log("Something went wrong",error);
+        removeCookie("TOKEN")
         removeCridential();
       })
       .finally(() => {

@@ -43,6 +43,14 @@ export default function Logut() {
                         isLoading: false,
                         closeButton: true,
                     });
+                }else if(error?.code === "ERR_NETWORK"){
+                    toast.update(id, {
+                        ...tostDefault,
+                        render: "Network Error",
+                        type: "error",
+                        isLoading: false,
+                        closeButton: true,
+                    });
                 } else {
                     toast.update(id, {
                         ...tostDefault,
@@ -56,7 +64,7 @@ export default function Logut() {
                 console.log({
                     message: error.message,
                     code: error.code,
-                    response: error.response.data
+                    response: error.response?.data
                 });
 
             });
