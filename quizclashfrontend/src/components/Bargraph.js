@@ -48,7 +48,7 @@ const BarGraph = () => {
   }, []);
 
   return (
-    <Container fluid>
+    <Container >
       <Row>
         <Col>
           <div style={{ width: "100%" }}>

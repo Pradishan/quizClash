@@ -11,6 +11,10 @@ class UserLoginSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id','email','username','first_name','last_name','phone','address','is_staff')
 
+class LeaderBoardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id','email','username','score')
 
 class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:

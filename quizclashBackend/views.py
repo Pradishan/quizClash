@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 
-from quizclashBackend.serializers import CreateUserSerializer,UpdateUserSerializer,LoginSerializer,QuizSerializer,QuestionSerializer,UserLoginSerializer
+from quizclashBackend.serializers import CreateUserSerializer,UpdateUserSerializer,LoginSerializer,QuizSerializer,QuestionSerializer,UserLoginSerializer,LeaderBoardSerializer
 from quizclashBackend.models import User,Quiz,Question
 from knox import views as knox_views
 from django.contrib.auth import login
@@ -39,11 +39,21 @@ class LoginAPIView(knox_views.LoginView):
             return Response({'errors':serializer.errors},status = status.HTTP_400_BAD_REQUEST)
         return Response(response.data,status = status.HTTP_200_OK)
     
-class GetUserAPIView(RetrieveAPIView,LoginAPIView):
+class GetUserAPIView(RetrieveAPIView,LoginAPIView,ListAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = UserLoginSerializer
     queryset = User.objects.all()
-    
+
+class GetUserAllAPIView(ListAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = UserLoginSerializer
+    queryset = User.objects.all()
+
+class LeaderBoardView(ListAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = LeaderBoardSerializer
+    queryset = User.objects.order_by('-score')[:50]
+
     # Quiz API by using basic technique
 class QuizAPIView(APIView):
     permission_classes = (AllowAny,)
