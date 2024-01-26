@@ -4,8 +4,8 @@ import tostDefault from '../data/tostDefault';
 import logo from '../assets/logo.png';
 import '../styles/nav.css'
 import { toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
-import { initialNavigate, loadCridential, removeCookie, removeCridential, setCookie } from '../util/Authentication';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { getAccessToken, initialNavigate, loadCridential, removeCookie, removeCridential, setCookie } from '../util/Authentication';
 
 export default function Login() {
 
@@ -98,6 +98,7 @@ export default function Login() {
     };
 
     return (
+        getAccessToken() ? (<Navigate to={initialNavigate()} />):
         <>
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container ">

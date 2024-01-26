@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export default function SaveScore(props) {
 
     const navigate = useNavigate()
-    const finalScore = parseInt((getUserScore() + ((props?.score ?? 0) * 10)),10)
+    const score = parseInt(((props?.score ?? 0)*10),10)
 
 
     const save = useCallback(async () => {
@@ -16,16 +16,16 @@ export default function SaveScore(props) {
         const id = toast.loading('Saving...', tostDefault);
 
         try {
-            const response = await axios.patch(`accounts/update-user/${getUserID()}`, {
-                score: finalScore ,
+            const response = await axios.put(`/accounts/update-score/${getUserID()}/`, {
+                score_value: score ,
             });
 
-
             console.log(response);
+      
 
             if (response.status === 200) {
 
-                console.log(finalScore)
+                console.log(score)
 
                 navigate('/profile');
 
@@ -38,6 +38,8 @@ export default function SaveScore(props) {
                 });
             }
         } catch (error) {
+            console.log(score);
+            console.log(getUserScore());
             toast.update(id, {
                 ...tostDefault,
                 render: 'Something went wrong',
@@ -52,7 +54,7 @@ export default function SaveScore(props) {
                 response: error.response?.data,
             });
         }
-    }, [navigate, props?.score]);
+    }, [navigate, props?.score,score]);
 
     return (
         <button className='btn btn-dark px-5 m-2' onClick={save}>

@@ -13,7 +13,7 @@ export default function Profile() {
 
   return (
     <>
-      <Navbar />
+      <Navbar page={'profile'} />
       <div className="profile-banner">
 
         <div className="infocardContainer">

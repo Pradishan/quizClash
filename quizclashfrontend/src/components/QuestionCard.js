@@ -22,7 +22,7 @@ export default function QuestionCard(props) {
                 <div className=" d-flex flex-column p-3 justify-content-center">
                     <h5 className="card-title">{props?.quiz?.name}</h5>
                     <p className="text-muted">{props?.quiz?.description}</p>
-                    <div className='d-flex justify-content-between'>
+                    <div className='d-flex justify-content-between'> 
                         <p className={`${level(props?.quiz?.level)} fw-bold m-0`}>{props?.quiz?.level}</p>
                         <p className='text-primary m-0'>{props?.quiz?.xp}xp <i className="bi bi-star-fill text-warning"></i></p>
                     </div>

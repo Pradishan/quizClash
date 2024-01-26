@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect } from 'react'
-import { Outlet, Navigate } from 'react-router-dom'
+import { Outlet, Navigate, useNavigate } from 'react-router-dom'
 import { getAccessToken, getUserID, loadCridential, removeCookie, removeCridential } from './Authentication'
 import axios from 'axios';
 
 export default function PrivateRoute() {
+  const navigate = useNavigate()
 
   const  id = getUserID(); 
   // fetch data
@@ -19,10 +20,11 @@ export default function PrivateRoute() {
         console.log("Something went wrong",error);
         removeCookie("TOKEN")
         removeCridential();
+        navigate('/login')
       })
       .finally(() => {
       });
-  }, [id]);
+  }, [id,navigate]);
 
   useEffect(() => {
     fetchData()

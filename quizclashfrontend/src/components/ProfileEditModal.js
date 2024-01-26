@@ -138,11 +138,11 @@ export default function ProfileEditModal() {
                   </div>
                   <br></br>
                   <div className="d-flex">
-                    <div className="form-group">
+                    <div className="form-group me-1">
                       <label for="editName">Firstname</label>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control w-100"
                         id="editName"
                         placeholder="Enter your name"
                         name="first_name"
@@ -153,11 +153,11 @@ export default function ProfileEditModal() {
                       />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group ms-1">
                       <label for="editName">Lastname</label>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control w-100"
                         id="editName"
                         placeholder="Enter your name"
                         name="last_name"

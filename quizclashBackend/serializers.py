@@ -50,6 +50,9 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         instance = super().update(instance,validated_data)
        
         return instance 
+    
+class UpdateScoreSerializer(serializers.Serializer):
+    score_value = serializers.IntegerField()
         
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()

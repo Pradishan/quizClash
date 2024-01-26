@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 
-from quizclashBackend.serializers import CreateUserSerializer,UpdateUserSerializer,LoginSerializer,QuizSerializer,QuestionSerializer,UserLoginSerializer,LeaderBoardSerializer
+from quizclashBackend.serializers import CreateUserSerializer,UpdateUserSerializer,LoginSerializer,QuizSerializer,QuestionSerializer,UserLoginSerializer,LeaderBoardSerializer,UpdateScoreSerializer
 from quizclashBackend.models import User,Quiz,Question
 from knox import views as knox_views
 from django.contrib.auth import login
@@ -47,8 +47,30 @@ class GetUserAPIView(RetrieveAPIView,LoginAPIView,ListAPIView):
 class GetUserAllAPIView(ListAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = UserLoginSerializer
-    queryset = User.objects.all()
+    queryset = User.objects.filter(is_staff=False)
 
+class UpdateScoreAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def put(self, request, user_id, *args, **kwargs):
+        serializer = UpdateScoreSerializer(data=request.data)
+        if serializer.is_valid():
+            score_value = serializer.validated_data['score_value']
+
+            try:
+                user = User.objects.get(id=user_id)
+            except User.DoesNotExist:
+                return Response({'errors': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+            # Check if the authenticated user is updating their own score
+            if request.user.id != user.id:
+                return Response({'errors': 'Permission denied.'}, status=status.HTTP_403_FORBIDDEN)
+
+            user.update_score(score_value)
+            return Response({'message': 'Score updated successfully.'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        
 class LeaderBoardView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = LeaderBoardSerializer

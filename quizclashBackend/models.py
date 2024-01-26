@@ -53,6 +53,13 @@ class User(AbstractBaseUser):
 
     objects = UserManager()
 
+    def update_score(self, score_value):
+        if self.score is None:
+            self.score = score_value
+        else:
+            self.score += score_value
+        self.save()
+
     def __str__(self):
         return self.email
     
