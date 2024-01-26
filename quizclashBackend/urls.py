@@ -1,6 +1,8 @@
 from django.urls import path
 from quizclashBackend import views
 from knox.views import LogoutView,LogoutAllView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('create-user/', views.CreateUserAPI.as_view()),
@@ -14,4 +16,4 @@ urlpatterns = [
     path('logout-all/', LogoutAllView.as_view()),
 
    
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

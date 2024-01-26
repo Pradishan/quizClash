@@ -3,18 +3,21 @@ from quizclashBackend.models import User,Quiz,Question
 from django.contrib.auth import authenticate
 
 class UserSerializer(serializers.ModelSerializer):
+    profile = serializers.ImageField(required=False)
     class Meta:
         model = User
-        fields = ('id','email','username','first_name','last_name','password','phone','address','is_staff','score')
+        fields = ('id','email','username','first_name','last_name','password','phone','address','is_staff','score','profile')
 class UserLoginSerializer(serializers.ModelSerializer):
+    profile = serializers.ImageField(required=False)
     class Meta:
         model = User
-        fields = ('id','email','username','first_name','last_name','phone','address','is_staff')
+        fields = ('id','email','username','first_name','last_name','phone','address','is_staff','score','profile')
 
 class LeaderBoardSerializer(serializers.ModelSerializer):
+    profile = serializers.ImageField(required=False)
     class Meta:
         model = User
-        fields = ('id','email','username','score')
+        fields = ('id','email','username','score','profile')
 
 class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -39,9 +42,10 @@ class CreateUserSerializer(serializers.ModelSerializer):
         return user
 
 class UpdateUserSerializer(serializers.ModelSerializer):
+    profile = serializers.ImageField(required=False)
     class Meta:
         model = User
-        fields = ('email','first_name','last_name','address','phone','password','score')
+        fields = ('email','first_name','last_name','address','phone','password','score','profile')
 
     def update(self,instance,validated_data):
         password = validated_data.pop('password', None)

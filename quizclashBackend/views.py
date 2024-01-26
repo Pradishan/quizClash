@@ -11,6 +11,7 @@ from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.parsers import MultiPartParser, FormParser
 
 
 
@@ -22,6 +23,7 @@ class CreateUserAPI(CreateAPIView):
 class UpdateUserAPI(UpdateAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = User.objects.all()
+    parser_classes = (MultiPartParser, FormParser)
     serializer_class = UpdateUserSerializer
     
 class LoginAPIView(knox_views.LoginView):
@@ -41,12 +43,14 @@ class LoginAPIView(knox_views.LoginView):
     
 class GetUserAPIView(RetrieveAPIView,LoginAPIView,ListAPIView):
     permission_classes = (IsAuthenticated,)
+    parser_classes = (MultiPartParser, FormParser)
     serializer_class = UserLoginSerializer
     queryset = User.objects.all()
 
 class GetUserAllAPIView(ListAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = UserLoginSerializer
+    parser_classes = (MultiPartParser, FormParser)
     queryset = User.objects.filter(is_staff=False)
 
 class UpdateScoreAPIView(APIView):
@@ -74,6 +78,7 @@ class UpdateScoreAPIView(APIView):
 class LeaderBoardView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = LeaderBoardSerializer
+    parser_classes = (MultiPartParser, FormParser)
     queryset = User.objects.order_by('-score')[:50]
 
     # Quiz API by using basic technique
@@ -134,6 +139,7 @@ class QuizAPIView(APIView):
 class QuestionAPIView(CreateAPIView,UpdateAPIView,RetrieveAPIView,DestroyAPIView):
     permission_classes = (AllowAny,)
     serializer_class = QuestionSerializer
+    parser_classes = (MultiPartParser, FormParser)
     queryset = Question.objects.all()
 
 class QuizzesAPIView(ListAPIView):

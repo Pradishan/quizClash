@@ -1,6 +1,6 @@
 import React from "react";
 import { BiSearch, BiCog, BiLogOut } from "react-icons/bi";
-import avatar from "../assets/pro pic.jpg";
+import avatar from "../assets/user.png";
 
 const TopNavbar = () => {
   return (
