@@ -13,7 +13,7 @@ export default function ProfileNavigatior(props) {
                     </div><p className='p-0 m-0'>{getUserName()}</p>
                 </div>
 
-                <ul className="dropdown-menu border-0 " style={{ zIndex: '100',marginTop:'10px'}}>
+                <ul className="dropdown-menu border-0 shadow " style={{ zIndex: '100',marginTop:'10px'}}>
                     <li className="dropdown-item" ><img src={avatar} alt="avatar" class="rounded-circle me-2" style={{ width: '32px', height: '32px', objectFit: 'cover' }} />
                         {
                             (props.page !== "profile") ? (<Link to={"/profile"} style={{ textDecoration: 'none' }} >View Profile</Link>) :

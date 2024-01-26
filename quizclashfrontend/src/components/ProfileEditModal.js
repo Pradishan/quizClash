@@ -1,10 +1,15 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import { toast } from "react-toastify";
 import tostDefault from "../data/tostDefault";
 import { getUserAddress, getUserEmail, getUserFirstName, getUserID, getUserLastName, getUserName, getUserPhone } from "../util/Authentication";
+import { useNavigate } from "react-router-dom";
+
+const LodingSpinner = lazy(() => import('./LodingSpinner'))
 
 export default function ProfileEditModal() {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     "username": getUserName(),
@@ -14,6 +19,8 @@ export default function ProfileEditModal() {
     "first_name": getUserFirstName(),
     "last_name": getUserLastName(),
   })
+
+  const [loading, setLoading] = useState(false)
 
   const handlechange = ({ currentTarget: input }) => {
     let newData = { ...formData };
@@ -25,6 +32,7 @@ export default function ProfileEditModal() {
   const submitForm = async (e) => {
     e.preventDefault();
     const id = toast.loading("Please wait...", tostDefault);
+    setLoading(true)
     await axios
       .patchForm(`accounts/update-user/${getUserID()}`, formData)
       .then((response) => {
@@ -39,10 +47,10 @@ export default function ProfileEditModal() {
             closeButton: true,
           });
 
-          window.location.reload();
-          window.location.reload();
+          // window.location.reload();
+          navigate('/login')
         }
-
+        setLoading(false)
       })
       .catch((error) => {
         if (error?.response?.status === 400) {
@@ -77,9 +85,13 @@ export default function ProfileEditModal() {
           response: error.response?.data
         });
 
+        setLoading(false)
+
       });
   };
 
+  // if data is fetching show loading spinner for user
+  if (loading) return <LodingSpinner />;
 
   return (
     <>

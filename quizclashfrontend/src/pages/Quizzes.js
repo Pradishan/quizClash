@@ -3,11 +3,11 @@ import React, { lazy, useCallback, useEffect, useState } from 'react';
 import '../styles/Quiz.css';
 import img from '../assets/demo.png';
 import { Link } from 'react-router-dom'
-import LodingSpinner from '../components/LodingSpinner';
 
 
 const Navbar = lazy(() => import('../components/Navbar'))
 const QuestionCard = lazy(() => import('../components/QuestionCard'))
+const LodingSpinner = lazy(() => import('../components/LodingSpinner'))
 
 export default function Quizzes() {
 
