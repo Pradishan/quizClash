@@ -1,5 +1,5 @@
 import React from 'react'
-import proPic from "../assets/pro pic.jpg";
+import proPic from "../assets/user.png";
 
 export default function UpdateProPictureCard() {
   return (

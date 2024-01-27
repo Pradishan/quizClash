@@ -1,6 +1,10 @@
 import React from "react";
 import "../../styles/admin-setting.css";
-import proPic from "../../assets/pro pic.jpg";
+
+import UpdateProPictureCard from "../../components/UpdateProPictureCard";
+import SettingUpdateUserDetailsForm from "../../components/SettingUpdateUserDetailsForm";
+import SecuritySetting from "../../components/SecuritySetting";
+import DeleteAccount from "../../components/DeleteAccount";
 
 export default function Settings() {
   return (
