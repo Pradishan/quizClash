@@ -53,7 +53,7 @@ export default function Profile() {
             </div>
 
             <div>
-              <h1 className='text-white'>{user?.username}</h1>
+              <h2 className='text-white'>Hello {user?.username} !</h2>
               <p className='text-white d-none d-md-block fw-bold p-0 m-0'>{user?.first_name}{" "}{user?.last_name} </p>
               <p className='text-white d-none d-md-block p-0 m-0'>{user?.address}</p>
               <p className='fw-bold d-none d-md-block p-0 m-0'>{user?.email}</p>
