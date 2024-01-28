@@ -1,7 +1,7 @@
 import React from 'react'
 import proPic from "../assets/user.png";
 
-export default function UpdateProPictureCard() {
+export default function UpdateProPictureCard({user}) {
   return (
     
 
@@ -18,10 +18,10 @@ export default function UpdateProPictureCard() {
           />
           <div class="mt-3">
             <h4>
-              <b>John Doe</b>
+              <b>  {user?.username}</b>
             </h4>
             <p class="text-secondary mb-1">
-              <b>SDT0054</b>
+              <b> {user?.email}</b>
             </p>
           </div>
           <br />
