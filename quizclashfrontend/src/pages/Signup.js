@@ -3,6 +3,7 @@ import logo from '../assets/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import '../styles/login.css';
 import tostDefault from '../data/tostDefault';
 
 
@@ -103,12 +104,13 @@ export default function Signup() {
     }
     return (
         <>
+        <div  className='background'>
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container">
                     <a className="py-1" href="/"><img src={logo} alt='logo' height={'30rem'} /></a>
                 </div>
             </nav>
-            <center><div className='justify-cintent-center p-3 vh-100' style={{ maxWidth: '30rem', }}>
+            <center><div className='justify-cintent-center p-3 vh-100' style={{ maxWidth: '30rem',border: '1px solid rgb(13,13,13,0.2)', borderRadius:'20px', padding:'10px',marginTop:'50px',marginBottom1:'50px' }}>
                 <h2 className='m-2 py-2'>Signup</h2>
                 <form onSubmit={(e) => (submitForm(e))} className=''>
                     <div className="form-floating mb-3">
@@ -163,6 +165,7 @@ export default function Signup() {
                 Already have an account? <Link to={'/login'} style={{ textDecoration: 'none' }}>Login</Link>
             </div>
             </center>
+            </div>
             <Footer/>
         </>
     )
