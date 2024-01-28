@@ -1,4 +1,5 @@
 import React from 'react'
+import DeleteConfirmationModal from './DeleteConfirmationModal'
 
 export default function DeleteAccount() {
   return (
@@ -13,10 +14,12 @@ export default function DeleteAccount() {
                 the button below.
               </p>
               <br />
-              <button class="btn btn-danger" type="button">
+
+              <DeleteConfirmationModal/>
+             {/* <button class="btn btn-danger" type="button">
                 I understand, delete my account
               </button>
-              <br></br>
+*/}  <br></br>
             </div>
             <br></br>
           </div>
