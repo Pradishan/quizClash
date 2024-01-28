@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Logut() {
 
-    const[loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
     const logout = async (e) => {
@@ -43,7 +43,7 @@ export default function Logut() {
                         isLoading: false,
                         closeButton: true,
                     });
-                }else if(error?.code === "ERR_NETWORK"){
+                } else if (error?.code === "ERR_NETWORK") {
                     toast.update(id, {
                         ...tostDefault,
                         render: "Network Error",
@@ -71,8 +71,8 @@ export default function Logut() {
     };
 
     return (
-        <button className='btn btn-darck rounted' onClick={(e) => {
+        <div className='p-2' typeof='button' onClick={(e) => {
             logout(e)
-        }}>Logut{loading && ("...")}</button>
+        }} style={{cursor:'pointer'}}><i className="bi bi-box-arrow-right me-2"></i>Logut{loading && ("...")}</div>
     )
 }

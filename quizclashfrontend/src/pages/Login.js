@@ -6,8 +6,8 @@ import '../styles/nav.css'
 import '../styles/login.css'
 import Bg from '../assets/bg.jpg';
 import { toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
-import { initialNavigate, loadCridential, removeCookie, removeCridential, setCookie } from '../util/Authentication';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { getAccessToken, initialNavigate, loadCridential, removeCookie, removeCridential, setCookie } from '../util/Authentication';
 
 export default function Login() {
 
@@ -100,6 +100,7 @@ export default function Login() {
     };
 
     return (
+        getAccessToken() ? (<Navigate to={initialNavigate()} />):
         <>
         <div  className='background'>
             <nav className="navbar navbar-expand-lg sticky-top">

@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import propic from "../assets/pro pic.jpg";
+import propic from "../assets/user.png";
 import "../styles/admin-panel.css";
 
 export default function AdminPanel() {

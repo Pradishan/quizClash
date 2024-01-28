@@ -1,18 +1,28 @@
 import React from "react";
 import ProfileEditModal from "./ProfileEditModal";
 
-export default function ProfileCard() {
+export default function ProfileCard({user}) {
+
   return (
     <div>
       <div className="card mb-3">
         <div className="card-body">
           <div className="row">
             <div className="col-sm-3">
+              <h6 className="mb-0">Username</h6>
+            </div>
+            <div className="col-sm-9 text-secondary">
+              {user?.username}
+            </div>
+          </div>
+          <hr />
+          <div className="row">
+            <div className="col-sm-3">
               <h6 className="mb-0">Full Name</h6>
             </div>
             <div className="col-sm-9 text-secondary">
-              {localStorage.getItem("FIRST_NAME")}{" "}
-              {localStorage.getItem("LAST_NAME")}
+            {user?.first_name}{" "}
+            {user?.last_name}
             </div>
           </div>
           <hr />
@@ -21,7 +31,7 @@ export default function ProfileCard() {
               <h6 className="mb-0">Email</h6>
             </div>
             <div className="col-sm-9 text-secondary">
-              {localStorage.getItem("EMAIL")}
+            {user?.email}
             </div>
           </div>
           <hr />
@@ -30,7 +40,7 @@ export default function ProfileCard() {
               <h6 className="mb-0">Phone</h6>
             </div>
             <div className="col-sm-9 text-secondary">
-              {localStorage.getItem("PHONE")}
+            {user?.phone}
             </div>
           </div>
           <hr />
@@ -39,12 +49,12 @@ export default function ProfileCard() {
               <h6 className="mb-0">Address</h6>
             </div>
             <div className="col-sm-9 text-secondary">
-              {localStorage.getItem("ADDRESS")}
+            {user?.address}
             </div>
           </div>
           <hr />
           <div className="row">
-            <ProfileEditModal />
+            <ProfileEditModal user={user}/>
           </div>
         </div>
       </div>

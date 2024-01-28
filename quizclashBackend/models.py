@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 from django.utils import timezone
 
+
+def profile_upload_path(instance):
+    return '/'.join(['profiles',str(instance.username)])
+
 # user mode manager
 class UserManager(BaseUserManager):
     def create_user(self,email,password,**extra_fields):
@@ -36,6 +40,7 @@ class User(AbstractBaseUser):
     password = models.CharField( max_length=255,null=True)
     first_name = models.CharField(max_length = 255,null = True)
     last_name = models.CharField(max_length = 255,null = True)
+    profile = models.ImageField(blank=True,null=True,upload_to=profile_upload_path)
 
     address = models.CharField(max_length = 255,null=True)
     phone = models.IntegerField()
@@ -52,6 +57,13 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = ['username','phone']
 
     objects = UserManager()
+
+    def update_score(self, score_value):
+        if self.score is None:
+            self.score = score_value
+        else:
+            self.score += score_value
+        self.save()
 
     def __str__(self):
         return self.email

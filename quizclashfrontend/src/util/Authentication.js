@@ -4,7 +4,7 @@ export const loadCridential = (cridential) => {
   localStorage.setItem("EMAIL", cridential.email);
   localStorage.setItem("PHONE", cridential.phone);
   localStorage.setItem("ADDRESS", cridential.address);
-  localStorage.setItem("SCORE", cridential.score);
+  localStorage.setItem("SCORE", cridential?.score ?? 0);
   localStorage.setItem("IS_STAFF", cridential.is_staff);
   localStorage.setItem("FIRST_NAME", cridential.first_name);
   localStorage.setItem("LAST_NAME", cridential.last_name);
@@ -94,7 +94,7 @@ export function getUserLastName() {
 }
 
 export function getUserScore() {
-  return (localStorage.getItem("SCORE") !== "null") ? localStorage.getItem("SCORE") : 0;  
+  return localStorage?.getItem("SCORE")
 }
 
 export function fetchUserData(){

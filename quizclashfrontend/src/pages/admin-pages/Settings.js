@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/admin-setting.css";
-import proPic from "../../assets/pro pic.jpg";
+import proPic from "../../assets/user.png";
 
 export default function Settings() {
   return (
