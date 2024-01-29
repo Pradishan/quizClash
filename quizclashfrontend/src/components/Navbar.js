@@ -21,9 +21,13 @@ export default function Navbar(props) {
                             <li className="">
                                 <a className={`navlink nav-hover ${(page === 'home') ? 'active' : ''}`} aria-current="page" href="/">Home</a>
                             </li>
-                            <li className="">
-                                <a className={`navlink nav-hover ${(props.tab === 'about') ? 'active' : ''}`} href="#about">About US</a>
-                            </li>
+                            {
+                                (page === 'home') && (
+                                    <li className="">
+                                        <a className={`navlink nav-hover ${(props.tab === 'about') ? 'active' : ''}`} href="#about">About US</a>
+                                    </li>
+                                )
+                            }
                             <li className="nav-item">
                                 <a className={`navlink nav-hover ${(page === 'quizzes') ? 'active' : ''}`} href="/quiz">Quizzes</a>
                             </li>

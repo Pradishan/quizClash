@@ -53,11 +53,11 @@ export default function Profile() {
             </div>
 
             <div>
-              <h2 className='text-black'>Hello {user?.username} !</h2>
-             {/* <p className='text-white d-none d-md-block fw-bold p-0 m-0'>{user?.first_name}{" "}{user?.last_name} </p>
-              <p className='text-white d-none d-md-block p-0 m-0'>{user?.address}</p>*/}
+              <h2 className='text-black m-0'>Hello {user?.username} !</h2>
+              {/* <p className='text-white d-none d-md-block fw-bold p-0 m-0'>{user?.first_name}{" "}{user?.last_name} </p> */}
+              {/* <p className='text-white d-none d-md-block p-0 m-0'>{user?.address}</p> */}
               <p className='fw-bold d-none d-md-block p-0 m-0'>{user?.email}</p>
-              <h5 className='text-black p-0 m-0'>⭐{user?.score}XP</h5>
+              <h3 className='text-white p-0 m-0'>⭐{user?.score}XP</h3>
             </div>
           </div>
 
@@ -67,13 +67,13 @@ export default function Profile() {
 <br></br>
 
 
-      <div className="container">
+      <div className="container mb-3">
         <div className="main-body">
 
 
           <div className="row gutters-sm">
 
-            <div className="col-md-12" ></div>
+            <h3><i class="bi bi-person-lines-fill me-2"></i>Profile</h3>
 
             <ProfileCard user={user} />
 
