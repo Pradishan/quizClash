@@ -21,11 +21,14 @@ export default function UpdateProPictureCard({user}) {
             <p class="text-secondary mb-1">
               <b> {user?.email}</b>
             </p>
+            <p class="text-secondary mb-1">
+              <b> {user?.phone}</b>
+            </p>
           </div>
           <br />
           <br />
 
-          <div className="d-flex justify-content-between align-items-center">
+         {/* <div className="d-flex justify-content-between align-items-center">
                         <label className="custom-upload">
                             <input type="file" name="upload_file" className="btn btn-secondary" />
                             Choose Image
@@ -36,7 +39,8 @@ export default function UpdateProPictureCard({user}) {
                         </button>
                     </div>
                       
-                <br></br>     
+                <br></br> */}   
+                <br></br> 
         </div>
       </div>
     </div>

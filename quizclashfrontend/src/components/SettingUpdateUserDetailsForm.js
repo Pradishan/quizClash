@@ -139,7 +139,8 @@ export default function SettingUpdateUserDetailsForm() {
             {/* Toggle Edit Mode button */}
             <button
               type="button"
-              className="btn btn-secondary mr-2"
+              
+              className=" btn btn-secondary mr-2"
               onClick={handleEditModeToggle}
             >
               {editMode ? 'Cancel' : 'Edit'}

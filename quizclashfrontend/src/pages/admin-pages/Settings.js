@@ -43,13 +43,13 @@ useEffect(() => {
         <SettingUpdateUserDetailsForm/>
 
         {/*Security Setting*/}
-        <SecuritySetting/>
+       {/* <SecuritySetting/>*/}
 
         {/*Delete account*/}
         
-        <DeleteAccount/>
+       {/* <DeleteAccount/>*/}
 
-
+   
       </div>
     </div>
   );
