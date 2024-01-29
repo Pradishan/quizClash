@@ -6,7 +6,7 @@ import tostDefault from '../../data/tostDefault';
 
 export default function CreateQuiz(props) {
 
-    const { show, onHide } = props;
+    const { show, onHide,fetchQuiz } = props;
 
     const [formData, setFormData] = useState({
         "name": '',
@@ -50,6 +50,9 @@ export default function CreateQuiz(props) {
                     "level": '',
                     "xp": '',
                 })
+
+                // Fetch updated quizzes data
+                fetchQuiz();
                 setLoading(false)
             })
             .catch((error) => {

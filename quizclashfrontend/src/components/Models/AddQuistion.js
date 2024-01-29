@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import tostDefault from '../../data/tostDefault';
 
 export default function AddQuistion(props) {
-  const { show, onHide, data ,number,id } = props;
+  const { show, onHide, data ,number,id,fetchQuestions } = props;
 
   const nextQuestionNumber = number ? number + 1 : 1;
 
@@ -58,6 +58,7 @@ export default function AddQuistion(props) {
           "option4": '',
           "quiz": id,
         })
+        fetchQuestions()
         setLoading(false)
       })
       .catch((error) => {
@@ -104,7 +105,7 @@ export default function AddQuistion(props) {
   const handleRadioChange = (selectedOption) => {
     setFormData({ ...formData, answer: selectedOption });
   };
-
+console.log(formData)
   // if data is fetching show loading spinner for user
   if (loading) return;
   return (
@@ -133,8 +134,8 @@ export default function AddQuistion(props) {
                     name="answer"
                     id={`radioOption${index + 1}`}
                     value={formData[option]}
-                    checked={formData?.answer === option}
-                    onChange={() => handleRadioChange(option)}
+                    checked={formData?.answer === formData[option]}
+                    onChange={() => handleRadioChange(formData[option])}
                   />
                   <label className="form-check-label" htmlFor={formData[option]}>{formData[option]}</label>
                 </div>
