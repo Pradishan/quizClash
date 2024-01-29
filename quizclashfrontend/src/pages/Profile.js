@@ -53,18 +53,18 @@ export default function Profile() {
             </div>
 
             <div>
-              <h1 className='text-white'>{user?.username}</h1>
-              <p className='text-white d-none d-md-block fw-bold p-0 m-0'>{user?.first_name}{" "}{user?.last_name} </p>
-              <p className='text-white d-none d-md-block p-0 m-0'>{user?.address}</p>
+              <h2 className='text-black'>Hello {user?.username} !</h2>
+             {/* <p className='text-white d-none d-md-block fw-bold p-0 m-0'>{user?.first_name}{" "}{user?.last_name} </p>
+              <p className='text-white d-none d-md-block p-0 m-0'>{user?.address}</p>*/}
               <p className='fw-bold d-none d-md-block p-0 m-0'>{user?.email}</p>
-              <h4 className='text-white p-0 m-0'>⭐{user?.score}XP</h4>
+              <h5 className='text-black p-0 m-0'>⭐{user?.score}XP</h5>
             </div>
           </div>
 
         </div>
 
       </div>
-
+<br></br>
 
 
       <div className="container">
@@ -80,10 +80,10 @@ export default function Profile() {
             <div className="row gutters-sm">
 
 
-              <QuizMarkDetailsCard />
+             {/* <QuizMarkDetailsCard />
 
 
-              <CertificateDetailsCard />
+            <CertificateDetailsCard />*/}
 
 
 
