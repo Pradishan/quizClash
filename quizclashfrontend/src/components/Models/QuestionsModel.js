@@ -75,7 +75,7 @@ export default function QuestionsModel(props) {
                     }}
                 >       Create
                 </button>
-                <AddQuistion show={showAddModal} onHide={() => setShowAddModal(false)} number ={questions?.length} id = {data?.id} />
+                <AddQuistion show={showAddModal} onHide={() => setShowAddModal(false)} number ={questions?.length} id = {data?.id} fetchQuestions = {fetchQuestions} />
             </Modal.Body>
         </Modal>
     )
