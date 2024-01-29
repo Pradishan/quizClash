@@ -1,5 +1,7 @@
 import React from 'react'
 import proPic from "../assets/user.png";
+import { getUserEmail, getUserName } from '../util/Authentication';
+import ProfileImage from './ProfileImage';
 
 export default function UpdateProPictureCard({user}) {
   return (
@@ -10,15 +12,11 @@ export default function UpdateProPictureCard({user}) {
         <div class="card-header">Profile Picture</div>
         <div class="card-body text-center">
           <br></br>
-          {/*Profile picture image*/}
-          <img
-            class="img-account-profile rounded-circle mb-2"
-            src={proPic}
-            alt="pro-pic"
-          />
+          <ProfileImage size={'150px'} src={user?.profile} />
+   
           <div class="mt-3">
             <h4>
-              <b>  {user?.username}</b>
+              <b> {user?.username}</b>
             </h4>
             <p class="text-secondary mb-1">
               <b> {user?.email}</b>
@@ -27,10 +25,18 @@ export default function UpdateProPictureCard({user}) {
           <br />
           <br />
 
-          <label class="custom-upload">
-            <input type="file" name="upload_file" />
-            Update Profile Picture
-          </label>
+          <div className="d-flex justify-content-between align-items-center">
+                        <label className="custom-upload">
+                            <input type="file" name="upload_file" className="btn btn-secondary" />
+                            Choose Image
+                        </label>
+
+                        <button className="btn btn-primary" type="button" >
+                            Save Changes
+                        </button>
+                    </div>
+                      
+                <br></br>     
         </div>
       </div>
     </div>
