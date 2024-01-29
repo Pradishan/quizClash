@@ -7,7 +7,7 @@ export default function UserData(props) {
     return (
         <Modal size='xl' show={show} onHide={onHide} backdrop="static" keyboard={false}>
             <Modal.Header closeButton>
-                <Modal.Title>Medical Records | {data?.id}</Modal.Title>
+                <Modal.Title>User | {data?.id}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <h5>user name</h5>

@@ -2,6 +2,7 @@ import React, { lazy, useCallback, useEffect, useState } from 'react'
 import LodingSpinner from '../components/LodingSpinner';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { formatQuestions } from '../util/Utils';
 
 const Navbar = lazy(() => import('../components/Navbar'));
 const Questions = lazy(() => import('./Questions'));
@@ -10,21 +11,6 @@ export default function Quiz() {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [questions, setQuestions] = useState(null);
-
-    // Function to convert API response to the desired format
-    const formatQuestions = (apiQuestions) => {
-        return apiQuestions.map((question) => ({
-            numb: question?.number,
-            question: question?.question,
-            answer: question?.answer,
-            options: [
-                question?.option1,
-                question?.option2,
-                question?.option3,
-                question?.option4,
-            ],
-        }));
-    };
 
     // fetch Questions
     const fetchQuestions = useCallback(async () => {

@@ -87,9 +87,6 @@ export default function ProfileEditModal({ user }) {
       });
   };
 
-  // if data is fetching show loading spinner for user
-  if (loading) return;
-
   return (
     <>
       {(loading) ? (<LodingSpinner />) : (<>
