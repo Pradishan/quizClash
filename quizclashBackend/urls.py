@@ -14,6 +14,8 @@ urlpatterns = [
     path('login/', views.LoginAPIView.as_view()),
     path('logout/', LogoutView.as_view()),
     path('logout-all/', LogoutAllView.as_view()),
+    path('change-password/', views.ChangePasswordView.as_view(), name='change_password'),
+    path('delete-account/', views.DeleteAccountView.as_view(), name='delete_account'),
 
    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

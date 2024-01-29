@@ -1,19 +1,16 @@
-import axios from 'axios'
-import React, { lazy, useCallback, useEffect, useState } from 'react';
-import '../styles/Quiz.css';
-import img from '../assets/demo.png';
-import { Link } from 'react-router-dom'
+import axios from "axios";
+import React, { lazy, useCallback, useEffect, useState } from "react";
+import "../styles/Quiz.css";
+import img from "../assets/demo.png";
+import { Link } from "react-router-dom";
 
-
-const Navbar = lazy(() => import('../components/Navbar'))
-const QuestionCard = lazy(() => import('../components/QuestionCard'))
-const LodingSpinner = lazy(() => import('../components/LodingSpinner'))
+const Navbar = lazy(() => import("../components/Navbar"));
+const QuestionCard = lazy(() => import("../components/QuestionCard"));
+const LodingSpinner = lazy(() => import("../components/LodingSpinner"));
 
 export default function Quizzes() {
-
   const [loading, setLoading] = useState(true);
   const [quizzes, setQuizzes] = useState(null);
-
 
   // fetch Quiz
   const fetchQuiz = useCallback(async () => {
@@ -23,7 +20,7 @@ export default function Quizzes() {
       .then((response) => {
         if (response.status === 200) {
           setQuizzes(response.data);
-          // console.log(response.data) 
+          // console.log(response.data)
         }
       })
       .catch((error) => {
@@ -35,7 +32,7 @@ export default function Quizzes() {
   }, [setQuizzes, setLoading]);
 
   useEffect(() => {
-   fetchQuiz();
+    fetchQuiz();
   }, [fetchQuiz]);
 
   return (
@@ -64,6 +61,5 @@ export default function Quizzes() {
         )}
       </div>
     </>
-
   );
 }

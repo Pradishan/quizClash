@@ -5,6 +5,7 @@ from quizclashBackend.serializers import CreateUserSerializer,UpdateUserSerializ
 from quizclashBackend.models import User,Quiz,Question
 from knox import views as knox_views
 from django.contrib.auth import login
+from django.contrib.auth import update_session_auth_hash
 
 from rest_framework.generics import CreateAPIView, UpdateAPIView,RetrieveAPIView,DestroyAPIView,ListAPIView
 from rest_framework.permissions import AllowAny,IsAuthenticated
@@ -150,3 +151,35 @@ class QuizzesAPIView(ListAPIView):
         quizid = self.kwargs.get('quiz_id')
         return Question.objects.filter(quiz_id=quizid)
     
+class ChangePasswordView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        current_password = request.data.get('currentPassword', '')
+        new_password = request.data.get('newPassword', '')
+        confirm_password = request.data.get('confirmPassword', '')
+
+        if not request.user.check_password(current_password):
+            return Response({'error': 'Incorrect current password'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if new_password != confirm_password:
+            return Response({'error': 'New passwords do not match'}, status=status.HTTP_400_BAD_REQUEST)
+
+        request.user.set_password(new_password)
+        request.user.save()
+        update_session_auth_hash(request, request.user)
+
+        return Response({'message': 'Password changed successfully'}, status=status.HTTP_200_OK)
+    
+
+class DeleteAccountView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        try:
+            
+            request.user.delete()
+
+            return Response({'message': 'Account deleted successfully'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': f'Error deleting account: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
