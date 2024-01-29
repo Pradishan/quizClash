@@ -32,9 +32,11 @@ export default function QuestionsModel(props) {
             });
     }, [setQuestions, setLoading, data?.id]);
 
+    
+
     useEffect(() => {
         fetchQuestions()
-    }, [fetchQuestions])
+    }, [fetchQuestions,setShowAddModal])
     if (loading) return <LodingSpinner />;
 
     return (
@@ -73,7 +75,7 @@ export default function QuestionsModel(props) {
                     }}
                 >       Create
                 </button>
-                <AddQuistion show={showAddModal} onHide={() => setShowAddModal(false)} />
+                <AddQuistion show={showAddModal} onHide={() => setShowAddModal(false)} number ={questions?.length} id = {data?.id} />
             </Modal.Body>
         </Modal>
     )

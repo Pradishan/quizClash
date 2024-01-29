@@ -140,7 +140,7 @@ class QuizAPIView(APIView):
 class QuestionAPIView(CreateAPIView,UpdateAPIView,RetrieveAPIView,DestroyAPIView):
     permission_classes = (AllowAny,)
     serializer_class = QuestionSerializer
-    parser_classes = (MultiPartParser, FormParser)
+    # parser_classes = (MultiPartParser, FormParser)
     queryset = Question.objects.all()
 
 class QuizzesAPIView(ListAPIView):
