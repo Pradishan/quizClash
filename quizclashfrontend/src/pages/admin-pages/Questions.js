@@ -64,7 +64,7 @@ export default function Questions() {
               quizzes && quizzes.length > 0 ? (
                 quizzes.map((quiz, index) => (
                   <div key={quiz.id} className='col-xxl-4 col-lg-5 col-md-6 col-sm-12 mb-3 d-flex justify-content-center'>
-                    <button className="btn " onClick={() => openModal(quiz?.id)}><QuestionCard img={img} quiz={quiz} /> </button>
+                    <button className="btn " onClick={() => openModal({id:quiz?.id,name:quiz?.name})}><QuestionCard img={img} quiz={quiz} /> </button>
                   </div>
                 ))
               ) : (
