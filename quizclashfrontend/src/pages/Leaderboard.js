@@ -39,7 +39,7 @@ export default function Leaderboard() {
   return (
     <>
       <Navbar page={'leaderboard'} />
-      <center>
+      <center style={{marginTop:'4rem'}}>
         <h1>Leader Board</h1>
         <div className='quiz-container mt-3 p-4' style={{ width: '70%' }}>
           {leaderboard?.map(i => (

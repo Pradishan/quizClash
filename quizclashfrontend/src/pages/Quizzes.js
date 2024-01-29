@@ -41,7 +41,7 @@ export default function Quizzes() {
   return (
     <>
       <Navbar page={'quizzes'} />
-      <div className='container'>
+      <div className='container' style={{marginTop:'4rem'}}>
         {(loading) ? (<LodingSpinner />) : (
           <div className='row'>
             {

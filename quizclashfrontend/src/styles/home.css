@@ -1,0 +1,8 @@
+.home-banner {
+    background: linear-gradient(45deg, rgb(255, 255, 255) 0%, rgba(255, 114, 93, 1) 65%,rgba(215, 98, 219, 1) 100%);
+    position: relative;
+    /* border-top-left-radius: 100% 20rem;  */
+    /* border-bottom-right-radius: 25% 20rem;  */
+    height: 20rem;
+}
+

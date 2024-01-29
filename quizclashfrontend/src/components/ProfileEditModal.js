@@ -98,7 +98,6 @@ export default function ProfileEditModal({ user }) {
           className="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#editModal"
-          style={{ width: "15%" }}
         >
           Edit Profile
         </button>

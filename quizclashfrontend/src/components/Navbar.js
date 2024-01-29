@@ -10,7 +10,7 @@ export default function Navbar(props) {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg sticky-top">
+            <nav className="navbar navbar-expand-lg fixed-top">
                 <div className="container">
                     <a className="py-1" href="/"><img src={logo} alt='logo' height={'30rem'} /></a>
                     <button className="btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
