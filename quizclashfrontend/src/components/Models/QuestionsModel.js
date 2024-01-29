@@ -63,7 +63,7 @@ export default function QuestionsModel(props) {
 
                 <button
                   type="button"
-                  className="btn btn-dark ms-auto me-5"
+                  className="btn btn-dark ms-auto me-1"
                   onClick={() => {
                     setShowEditModal(true);
                     setEditdata(formattedQuestion);
@@ -79,7 +79,7 @@ export default function QuestionsModel(props) {
                 />
               </div>
 
-              <p>Question: {formattedQuestion.question}</p>
+              <p className="">Question: {formattedQuestion.question}</p>
               <p>Answer: {formattedQuestion.answer}</p>
               <p>Options:</p>
               <ul>
