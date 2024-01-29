@@ -7,6 +7,7 @@ import avatar from '../assets/user.png'
 import axios from 'axios';
 import { getUserID } from '../util/Authentication';
 import LodingSpinner from '../components/LodingSpinner';
+import ProfileImage from '../components/ProfileImage';
 
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
@@ -49,7 +50,7 @@ export default function Profile() {
         <div className='container' style={{ maxWidth: '40rem', }}>
           <div className='d-flex flex-column flex-md-row align-items-center justify-content-center' style={{ padding: '5rem' }}>
             <div className='me-2'>
-              <img src={avatar} alt="avatar" class="rounded-circle" style={{ width: '10rem', height: '10rem', objectFit: 'cover' }} />
+            <ProfileImage src={user?.profile} size={'200px'}/>
             </div>
 
             <div>

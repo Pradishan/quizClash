@@ -8,6 +8,7 @@ export const loadCridential = (cridential) => {
   localStorage.setItem("IS_STAFF", cridential.is_staff);
   localStorage.setItem("FIRST_NAME", cridential.first_name);
   localStorage.setItem("LAST_NAME", cridential.last_name);
+  localStorage.setItem("PROFILE", cridential.profile);
 }
 
 // Function to set a cookie
@@ -57,6 +58,7 @@ export function removeCridential() {
   localStorage.removeItem("IS_STAFF");
   localStorage.removeItem("FIRST_NAME");
   localStorage.removeItem("LAST_NAME");
+  localStorage.removeItem("PROFILE");
 }
 
 export function getAccessToken() {
@@ -95,6 +97,10 @@ export function getUserLastName() {
 
 export function getUserScore() {
   return localStorage?.getItem("SCORE")
+}
+
+export function getProfile() {
+  return localStorage?.getItem("PROFILE")
 }
 
 export function fetchUserData(){

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { lazy, useCallback, useEffect, useState } from "react";
 import UserData from "../../components/Models/UserData";
+import ProfileImage from "../../components/ProfileImage";
 
 const LodonSpinner = lazy(() => import('../../components/LodingSpinner'));
 
@@ -63,7 +64,7 @@ export default function Users() {
             {user?.map((i) => (
               <tr key={i?.id}>
                 <th scope="row">{i?.id}</th>
-                <td>{i?.username}</td>
+                <td><ProfileImage src={i?.profile} size={'32px'}/>{i?.username}</td>
                 <td>{i?.email}</td>
                 <td>{i?.phone}</td>
                 <td>{(i?.score ?? 0)}</td>

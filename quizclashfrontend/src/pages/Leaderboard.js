@@ -1,6 +1,7 @@
 import React, { lazy, useCallback, useEffect, useState } from 'react'
 import '../styles/Quiz.css';
 import axios from 'axios';
+import ProfileImage from '../components/ProfileImage';
 
 const Navbar = lazy(() => import('../components/Navbar'));
 const LodonSpinner = lazy(() => import('../components/LodingSpinner'));
@@ -46,7 +47,8 @@ export default function Leaderboard() {
             < div key={i} className='row p-3' >
               <div className='d-flex justify-content-between p-2 mx-3 align-items-center' >
                 <div className='d-flex ms-3'>
-                  <span>{leaderboard.indexOf(i) + 1}</span>
+                  <span className='me-2'>{leaderboard.indexOf(i) + 1}</span>
+                  <ProfileImage src={i?.profile} size={'32px'}/>
                   <p className='m-0 p-0 ms-2'>{i?.username}</p>
                 </div>
                 <div className='ms-0 me-3'>

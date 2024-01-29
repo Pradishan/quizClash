@@ -40,7 +40,8 @@ class User(AbstractBaseUser):
     password = models.CharField( max_length=255,null=True)
     first_name = models.CharField(max_length = 255,null = True)
     last_name = models.CharField(max_length = 255,null = True)
-    profile = models.ImageField(blank=True,null=True,upload_to=profile_upload_path)
+    profile = models.ImageField(blank=True, null=True, upload_to=profile_upload_path)
+
 
     address = models.CharField(max_length = 255,null=True)
     phone = models.IntegerField()
