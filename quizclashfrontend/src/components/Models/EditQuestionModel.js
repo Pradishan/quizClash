@@ -34,16 +34,17 @@ export default function EditQuestionModel(props) {
     await axios
       .patch(`/question/${data?.id}/`, formData)
       .then((response) => {
-        // console.log(response.data)
-        if (response.status === 201) {
+        console.log(response.status)
+        if (response.status === 200) {
           toast.update(id, {
             ...tostDefault,
-            render: "created",
+            render: "changed",
             type: "success",
             isLoading: false,
             closeButton: true,
           });
         }
+        setLoading(false);
         onHide();
         setFormData({
           number: data?.number,
@@ -56,7 +57,7 @@ export default function EditQuestionModel(props) {
           quiz: data?.quiz,
         });
         fetchQuestions();
-        setLoading(false);
+     
       })
       .catch((error) => {
         if (error?.response?.status === 400) {

@@ -57,7 +57,7 @@ export default function AddQuistion(props) {
           "option3": '',
           "option4": '',
           "quiz": id,
-        })
+        }) 
         fetchQuestions()
         setLoading(false)
       })
