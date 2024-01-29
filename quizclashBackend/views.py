@@ -165,9 +165,9 @@ class ChangePasswordView(APIView):
         if new_password != confirm_password:
             return Response({'error': 'New passwords do not match'}, status=status.HTTP_400_BAD_REQUEST)
 
-        request.user.set_password(new_password)
-        request.user.save()
-        update_session_auth_hash(request, request.user)
+        request.User.set_password(new_password)
+        request.User.save()
+        update_session_auth_hash(request, request.User)
 
         return Response({'message': 'Password changed successfully'}, status=status.HTTP_200_OK)
     
@@ -183,3 +183,24 @@ class DeleteAccountView(APIView):
             return Response({'message': 'Account deleted successfully'}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({'error': f'Error deleting account: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+
+        
+
+class UpdateProfilePictureView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        try:
+            profile_picture = request.FILES.get('profile_picture')
+
+            if not profile_picture:
+                return Response({'error': 'Please choose a file to update profile picture'}, status=status.HTTP_400_BAD_REQUEST)
+
+            # Update user's profile picture
+            request.user.profile_picture = profile_picture
+            request.user.save()
+
+            return Response({'message': 'Profile picture updated successfully'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': f'Error updating profile picture: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

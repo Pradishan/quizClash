@@ -16,6 +16,7 @@ urlpatterns = [
     path('logout-all/', LogoutAllView.as_view()),
     path('change-password/', views.ChangePasswordView.as_view(), name='change_password'),
     path('delete-account/', views.DeleteAccountView.as_view(), name='delete_account'),
+    path('update-profile-picture/', views.UpdateProfilePictureView.as_view(), name='update_profile_picture'),
 
    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
