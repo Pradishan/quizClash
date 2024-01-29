@@ -7,7 +7,6 @@ const Quiz = lazy(() => import("../pages/Quiz"));
 const privateRoutingData = {
   "/profile": <Profile />,
   "/quiz/:id": <Quiz />,
-  "/quizedit/:id": <QuizEdit />,
 };
 
 export default privateRoutingData;
