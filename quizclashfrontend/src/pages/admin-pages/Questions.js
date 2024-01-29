@@ -81,7 +81,8 @@ export default function Questions() {
     {
       selectedData ? (<QuestionsModel show={showModal} onHide={() => setShowModal(false)} data={selectedData} />) : (null)
     }
-    <CreateQuiz show={showCreateModal} onHide={() => setShowCreateModal(false)} />
+    <CreateQuiz show={showCreateModal} onHide={() => setShowCreateModal(false)} fetchQuiz={fetchQuiz}/>
+
   </>
   );
 }
